@@ -9,7 +9,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
             background-color: #050505;
-            /* Fondo limpio para la sección de información */
             background-image: url('./fondo.jpg'); 
             background-position: center;
             background-repeat: no-repeat;
@@ -17,63 +16,50 @@
             background-attachment: fixed;
             color: white; 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            overflow-x: hidden;
         }
         .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: -1; }
         
-        /* BARRA DE NAVEGACIÓN */
+        /* NAVEGACIÓN CENTRADA */
         nav { 
             display: flex; justify-content: space-between; align-items: center; 
             padding: 0 5%; height: 85px; background: rgba(0, 0, 0, 0.95); 
             backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; 
             z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.05);
         }
+        .nav-left { flex: 1; display: flex; align-items: center; }
         .nav-left img { height: 40px; width: auto; }
+
         .nav-center { display: flex; list-style: none; gap: 30px; align-items: center; flex: 2; justify-content: center; }
-        .nav-center a { color: #888; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: 0.3s; position: relative; padding-bottom: 5px; }
-        .nav-center a.active { color: white; border-bottom: 2px solid white; }
+        .nav-center a { color: #888; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: 0.3s; position: relative; }
+        .nav-center a.active { color: white; }
+        .nav-center a.active::after { content: ''; position: absolute; bottom: -8px; left: 0; width: 100%; height: 2px; background: white; }
         .nav-center a:hover { color: white; }
+
         .nav-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 15px; }
         .social-box { display: flex; gap: 10px; border-right: 1px solid rgba(255,255,255,0.1); padding-right: 20px; }
-        .social-icon { width: 35px; height: 35px; background: rgba(255,255,255,0.05); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #ccc; text-decoration: none; font-size: 1.1rem; transition: 0.3s; border: 1px solid rgba(255,255,255,0.05); }
+        .social-icon { width: 35px; height: 35px; background: rgba(255,255,255,0.05); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #ccc; text-decoration: none; font-size: 1.1rem; border: 1px solid rgba(255,255,255,0.05); }
         .btn-discord-nav { background: #fff; color: #000 !important; padding: 10px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 0.85rem; }
 
-        /* CABECERA (Estilo imagen 22) */
-        .about-header { padding: 160px 10% 80px; text-align: left; position: relative; }
-        .about-header .label { color: #555; text-transform: uppercase; letter-spacing: 2px; font-size: 0.75rem; font-weight: bold; margin-bottom: 10px; }
-        .about-header h1 { font-size: 4rem; margin-bottom: 15px; text-shadow: 0 5px 15px rgba(0,0,0,0.5); }
-        .about-header .tagline { color: #ddd; font-size: 1.2rem; }
-
-        /* CONTENIDO PRINCIPAL */
-        .content-container { max-width: 1000px; margin: 0 auto; padding: 0 20px 100px; }
+        /* CONTENIDO */
+        .content-container { max-width: 1000px; margin: 0 auto; padding: 160px 20px 100px; }
+        .about-header { text-align: left; margin-bottom: 60px; }
+        .label { color: #555; text-transform: uppercase; letter-spacing: 2px; font-size: 0.75rem; font-weight: bold; margin-bottom: 10px; }
+        h1 { font-size: 4rem; margin-bottom: 15px; }
         
-        /* Secciones de texto (Historia, Misión, Visión) */
-        .text-section { margin-bottom: 80px; }
-        .text-section h2 { font-size: 2.2rem; margin-bottom: 20px; position: relative; display: inline-block; padding-bottom: 10px; }
-        /* Línea decorativa morada bajo el título */
-        .text-section h2::after { content: ''; position: absolute; left: 0; bottom: 0; width: 60px; height: 3px; background: #6c5ce7; border-radius: 2px; }
-        .text-section p { color: #aaa; line-height: 1.8; font-size: 1.05rem; margin-bottom: 20px; }
+        .text-section { margin-bottom: 60px; }
+        .text-section h2 { font-size: 2rem; margin-bottom: 20px; color: #fff; position: relative; display: inline-block; padding-bottom: 10px; }
+        .text-section h2::after { content: ''; position: absolute; left: 0; bottom: 0; width: 50px; height: 3px; background: #6c5ce7; }
+        .text-section p { color: #aaa; line-height: 1.8; font-size: 1.1rem; }
 
-        /* VALORES (Estilo imagen 23) */
-        .values-section h2.center-title { font-size: 2.5rem; text-align: center; margin-bottom: 60px; }
-        .values-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
-        
-        .value-card { background: rgba(20, 20, 20, 0.6); padding: 40px; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(5px); }
-        .value-card .number { font-size: 2rem; font-weight: bold; color: rgba(255, 255, 255, 0.1); margin-bottom: 10px; display: block; }
-        .value-card h3 { font-size: 1.8rem; margin-bottom: 15px; color: #fff; }
-        .value-card p { color: #999; line-height: 1.7; font-size: 1rem; }
-
-        @media (max-width: 768px) {
-            .values-grid { grid-template-columns: 1fr; }
-            .about-header h1 { font-size: 3rem; }
-        }
+        .values-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; margin-top: 40px; }
+        .value-card { background: rgba(20, 20, 20, 0.6); padding: 30px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); }
+        .value-card h3 { color: #6c5ce7; margin-bottom: 10px; }
     </style>
 </head>
 <body>
     <div class="overlay"></div>
-    
     <nav>
-        <div class="nav-left"><img src="./fondo-blacno.jpg" alt="Society Logo"></div>
+        <div class="nav-left"><img src="./fondo-blacno.jpg" alt="Logo"></div>
         <ul class="nav-center">
             <li><a href="index.html">Inicio</a></li>
             <li><a href="eventos.html">Eventos</a></li>
@@ -90,14 +76,12 @@
         </div>
     </nav>
 
-    <header class="about-header">
-        <div class="label">SOBRE NOSOTROS</div>
-        <h1>¿Quiénes Somos?</h1>
-        <p class="tagline">Apasionados en la creación de eventos por diversión.</p>
-    </header>
-
     <div class="content-container">
-        
+        <header class="about-header">
+            <div class="label">SOBRE NOSOTROS</div>
+            <h1>¿Quiénes Somos?</h1>
+        </header>
+
         <section class="text-section">
             <h2>Nuestra Historia</h2>
             <p>Society Studios fue creado por Steemon trayendo las primeras experiencias y diferentes eventos tratando de darles a los jugadores nuevas experiencias, con el objetivo de elevar la calidad de los eventos comunitarios en Minecraft.</p>
@@ -105,44 +89,13 @@
 
         <section class="text-section">
             <h2>Misión</h2>
-            <p>Este equipo trata de traer la mejor experiencia a los jugadores que participen en los eventos y disfruta en crear y realizar los eventos. Nos apasiona llevar cada evento al siguiente nivel con mecánicas únicas y producción de calidad, asegurando que cada participante viva una aventura inolvidable.</p>
+            <p>Este equipo trata de traer la mejor experiencia a los jugadores que participen en los eventos y disfruta en crear y realizar los eventos. Nos apasiona llevar cada evento al siguiente nivel.</p>
         </section>
 
-        <section class="text-section">
-            <h2>Visión</h2>
-            <p>Convertirnos en el referente de eventos de Minecraft en la comunidad hispanohablante, reconocidos por nuestra innovación, calidad y dedicación. Aspiramos a seguir creciendo y evolucionando para ofrecer experiencias cada vez más ambiciosas, superando los límites de lo que es posible en el juego.</p>
-        </section>
-
-        <section class="values-section">
-            <h2 class="center-title">Nuestros Valores</h2>
-            
-            <div class="values-grid">
-                <div class="value-card">
-                    <span class="number">01</span>
-                    <h3>Pasión</h3>
-                    <p>Apasionados en la creación de eventos por diversión, cada proyecto es una oportunidad para innovar y compartir nuestra visión con la comunidad.</p>
-                </div>
-
-                <div class="value-card">
-                    <span class="number">02</span>
-                    <h3>Dedicación</h3>
-                    <p>100% comprometidos con cada evento, trabajando con dedicación y esfuerzo para superar las expectativas de los jugadores.</p>
-                </div>
-
-                <div class="value-card">
-                    <span class="number">03</span>
-                    <h3>Experiencia</h3>
-                    <p>Enfocados en darles a los jugadores nuevas experiencias únicas que nunca antes han vivido, cuidando cada detalle de la jugabilidad.</p>
-                </div>
-
-                <div class="value-card">
-                    <span class="number">04</span>
-                    <h3>Calidad</h3>
-                    <p>Cada detalle importa en nuestros eventos, desde el diseño técnico hasta la experiencia final del jugador, buscando siempre la excelencia.</p>
-                </div>
-            </div>
-        </section>
-
+        <div class="values-grid">
+            <div class="value-card"><h3>01 Pasión</h3><p>Apasionados en la creación de eventos por diversión.</p></div>
+            <div class="value-card"><h3>02 Calidad</h3><p>Cada detalle importa en nuestros mundos interactivos.</p></div>
+        </div>
     </div>
 </body>
 </html>
