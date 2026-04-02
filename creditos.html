@@ -46,32 +46,33 @@
             background: rgba(20, 20, 20, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.1);
             max-width: 500px;
-            margin: 0 auto 40px;
+            margin: 0 auto 50px;
             padding: 40px;
             border-radius: 20px;
             backdrop-filter: blur(10px);
+            transition: 0.3s;
         }
+        .main-dev:hover { transform: translateY(-5px); border-color: #5865F2; }
+        
         .avatar-large {
-            width: 150px;
-            height: 150px;
-            background: #2c2f33; /* Color Discord */
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
             border: 4px solid #5865F2;
+            object-fit: cover;
+            display: block;
         }
-        .main-dev h2 { font-size: 2rem; margin-bottom: 5px; }
-        .main-dev p { color: #5865F2; font-weight: bold; margin-bottom: 15px; }
+        
+        .main-dev h2 { font-size: 2.2rem; margin-bottom: 5px; }
+        .main-dev p { color: #5865F2; font-weight: bold; margin-bottom: 15px; letter-spacing: 1px; }
         .discord-tag { background: rgba(255,255,255,0.05); padding: 8px 15px; border-radius: 5px; font-family: monospace; color: #aaa; }
 
-        /* TARJETA PEQUEÑA (ᗩᗪᖇᎥᗩᑎ) */
+        /* TARJETA SECUNDARIA (Adriana) - MÁS PEQUEÑA */
         .sub-dev {
             background: rgba(20, 20, 20, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            max-width: 300px;
+            max-width: 320px;
             margin: 0 auto;
             padding: 20px;
             border-radius: 15px;
@@ -79,20 +80,21 @@
             align-items: center;
             gap: 15px;
             text-align: left;
+            transition: 0.3s;
         }
+        .sub-dev:hover { background: rgba(30, 30, 30, 0.6); }
+
         .avatar-small {
-            width: 60px;
-            height: 60px;
-            background: #23272a;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
             border: 2px solid rgba(255,255,255,0.2);
+            object-fit: cover;
         }
-        .sub-dev h3 { font-size: 1.1rem; margin-bottom: 2px; }
-        .sub-dev span { color: #777; font-size: 0.85rem; }
+        
+        .sub-info h3 { font-size: 1.1rem; margin-bottom: 2px; color: #eee; }
+        .sub-info span { color: #777; font-size: 0.85rem; display: block; margin-bottom: 4px; }
+        .sub-tag { font-size: 0.75rem; color: #555; font-family: monospace; }
     </style>
 </head>
 <body>
@@ -116,25 +118,22 @@
     </nav>
 
     <div class="credits-container">
-        <div class="label">RECONOCIMIENTOS</div>
-        <h1>Equipo de Desarrollo</h1>
+        <div class="label">EQUIPO DETRÁS DEL PROYECTO</div>
+        <h1>Créditos</h1>
 
         <div class="main-dev">
-            <div class="avatar-large">
-                <i class="fab fa-discord"></i>
-            </div>
+            <img src="image_25ea67.png" alt="Mr_black Profile" class="avatar-large">
             <h2>Mr_black</h2>
-            <p>Desarrollador Principal de la Web</p>
+            <p>DESARROLLADOR WEB</p>
             <span class="discord-tag">isajarelpro21</span>
         </div>
 
         <div class="sub-dev">
-            <div class="avatar-small">
-                <i class="fab fa-discord"></i>
-            </div>
+            <img src="image_25ea8a.jpg" alt="Adriana Profile" class="avatar-small">
             <div class="sub-info">
-                <h3>ᗩᗪᖇᎥᗩᑎ</h3>
-                <span>Colaborador / dabudomo</span>
+                <h3>ᗩᗪᖇᎥᗩᑎaentra</h3>
+                <span>Colaboradora</span>
+                <div class="sub-tag">dabudomo</div>
             </div>
         </div>
     </div>
