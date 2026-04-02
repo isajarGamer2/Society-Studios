@@ -3,206 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Society Studios | Oficial</title>
+    <title>Society Studios | Eventos</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: #000 url('fondo.jpg') no-repeat center center fixed; 
+            background-size: cover; 
+            color: white; 
+            font-family: sans-serif; 
         }
-
-        body, html {
-            width: 100%;
-            background-color: #000;
-            font-family: 'Segoe UI', sans-serif;
-            color: white;
-            overflow-x: hidden;
+        nav { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 15px 5%; background: rgba(0, 0, 0, 0.8); 
+            position: fixed; width: 100%; top: 0; 
         }
+        .nav-logo img { height: 45px; }
+        .nav-links { display: flex; gap: 25px; list-style: none; }
+        .nav-links a { color: #ccc; text-decoration: none; font-weight: bold; text-transform: uppercase; }
+        .nav-links a:hover { color: #fff; }
 
-        /* --- FONDO GLOBAL --- */
-        .global-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-image: url('./fondo.jpg'); /* Ruta forzada para GitHub */
-            background-size: cover;
-            background-position: center;
-            z-index: -2;
+        /* Contenido de Eventos */
+        .container { 
+            padding-top: 120px; display: flex; justify-content: center; 
+            min-height: 100vh; background: rgba(0,0,0,0.5); 
         }
-
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: -1;
+        .card { 
+            background: rgba(20, 20, 20, 0.9); padding: 30px; border-radius: 15px; 
+            display: flex; gap: 30px; max-width: 900px; width: 90%; height: fit-content;
+            border: 1px solid rgba(255,255,255,0.1);
         }
-
-        /* --- NAVBAR --- */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 5%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .nav-logo img {
-            height: 45px;
-            width: auto;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-        }
-
-        .nav-links a {
-            color: #ccc;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-        }
-
-        .btn-discord {
-            background: #fff;
-            color: #000;
-            padding: 8px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        /* --- SECCIÓN INICIO --- */
-        #inicio {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        #inicio h1 {
-            font-size: 4rem;
-            margin-bottom: 10px;
-            text-shadow: 0 5px 20px #000;
-        }
-
-        /* --- SECCIÓN EVENTOS --- */
-        #eventos {
-            min-height: 100vh;
-            padding: 120px 5% 50px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .event-card {
-            background: rgba(20, 20, 20, 0.85);
-            border-radius: 20px;
-            width: 100%;
-            max-width: 950px;
-            display: flex;
-            padding: 30px;
-            gap: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        .event-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: rgba(255, 255, 255, 0.2);
-        }
-
-        .event-img-container {
-            width: 400px;
-            height: 230px;
-            border-radius: 12px;
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-
-        .event-img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .event-text h2 {
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-
-        .event-text p {
-            color: #bbb;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .tag {
-            background: rgba(255,255,255,0.1);
-            padding: 5px 12px;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            margin-right: 8px;
+        .card img { width: 350px; border-radius: 10px; object-fit: cover; }
+        .info h2 { font-size: 2rem; margin-bottom: 10px; }
+        .info p { color: #ccc; margin-bottom: 15px; line-height: 1.5; }
+        .tag { background: rgba(255,255,255,0.1); padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; }
+        
+        @media (max-width: 768px) {
+            .card { flex-direction: column; align-items: center; text-align: center; }
+            .card img { width: 100%; }
         }
     </style>
 </head>
 <body>
 
-    <div class="global-bg"></div>
-    <div class="overlay"></div>
-
     <nav>
         <div class="nav-logo">
-            <img src="./logo-blacno.jpg" alt="Logo Society">
+            <img src="logo-blacno.jpg" alt="Logo">
         </div>
         <ul class="nav-links">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#eventos">Eventos</a></li>
-            <li><a href="#">Historia</a></li>
-            <li><a href="#">Nosotros</a></li>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="eventos.html">Eventos</a></li>
         </ul>
-        <a href="#" class="btn-discord">DISCORD</a>
     </nav>
 
-    <section id="inicio">
-        <h1>SOCIETY STUDIOS</h1>
-        <p>Experiencias únicas en Minecraft desde 2026</p>
-    </section>
-
-    <section id="eventos">
-        <div class="event-card">
-            <div class="event-number">01</div>
-            <div class="event-img-container">
-                <img src="./societysafioestudios.jpg" alt="Society Safio">
-            </div>
-            <div class="event-text">
-                <h2>Society Safio</h2>
+    <div class="container">
+        <div class="card">
+            <img src="societysafioestudios.jpg" alt="Society Safio">
+            <div class="info">
+                <h2>01. Society Safio</h2>
                 <p>Primer evento dedsafio multijugador de mucha dificultad inspirado en Dedsafio 3.</p>
-                <div>
-                    <span class="tag">Mucha Dificultad</span>
-                    <span class="tag">Multijugador</span>
-                </div>
+                <span class="tag">MUCHA DIFICULTAD</span>
+                <span class="tag">MULTIJUGADOR</span>
             </div>
         </div>
-    </section>
+    </div>
 
 </body>
 </html>
