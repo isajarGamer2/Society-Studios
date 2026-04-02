@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Society Studios | Agencia de Eventos Minecraft</title>
+    <title>Society Studios | Inicio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -18,9 +18,9 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow-x: hidden;
         }
-        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: -1; }
+        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); z-index: -1; }
         
-        /* NAV SIMÉTRICO */
+        /* NAVEGACIÓN */
         nav { 
             display: flex; justify-content: space-between; align-items: center; 
             padding: 0 5%; height: 85px; background: rgba(0, 0, 0, 0.95); 
@@ -33,63 +33,46 @@
         .nav-center a { color: #888; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: 0.3s; position: relative; }
         .nav-center a.active { color: white; }
         .nav-center a.active::after { content: ''; position: absolute; bottom: -8px; left: 0; width: 100%; height: 2px; background: white; }
-        .nav-right { justify-content: flex-end; }
+        .nav-right { justify-content: flex-end; gap: 15px; }
         .btn-discord-nav { background: #fff; color: #000 !important; padding: 10px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 0.85rem; }
 
-        /* HERO */
+        /* HERO SECTION */
         .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
-        .hero h1 { font-size: clamp(3rem, 10vw, 6rem); text-transform: uppercase; letter-spacing: 8px; margin-bottom: 10px; }
-        .hero p { font-size: 1.2rem; color: #aaa; max-width: 600px; margin-bottom: 30px; }
+        .hero h1 { font-size: 5rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 5px; }
+        .hero p { font-size: 1.5rem; color: #ccc; max-width: 800px; margin-bottom: 30px; }
+        .btn-main { background: #6c5ce7; color: white; padding: 15px 40px; border-radius: 10px; text-decoration: none; font-weight: bold; transition: 0.3s; font-size: 1.1rem; }
+        .btn-main:hover { background: #5649c1; transform: scale(1.05); }
 
-        /* SECCIONES ANIMADAS (REVEAL) */
-        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; margin-bottom: 100px; }
+        /* SECCIONES DE RESUMEN (REVEAL) */
+        .section-container { max-width: 1100px; margin: 0 auto; padding: 100px 20px; }
+        .reveal { opacity: 0; transform: translateY(40px); transition: 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-
-        /* BLOQUES DE INFO (NOSOTROS) */
-        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 50px 0; }
-        .info-card { background: rgba(255,255,255,0.03); padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); }
-        .info-card h3 { color: #6c5ce7; font-size: 1.5rem; margin-bottom: 15px; }
-        .info-card p { color: #888; line-height: 1.6; }
-
-        /* VISTA PREVIA HISTORIA (TIMELINE) */
-        .history-preview { text-align: center; background: rgba(108, 92, 231, 0.05); padding: 60px 40px; border-radius: 30px; }
-        .step-row { display: flex; justify-content: space-around; margin-top: 40px; }
-        .step { flex: 1; padding: 10px; }
-        .step h4 { color: #6c5ce7; font-size: 1.5rem; }
-
-        /* FOOTER */
-        footer { 
-            background: #080808; 
-            padding: 80px 5% 30px; 
-            border-top: 1px solid rgba(255,255,255,0.05);
-            margin-top: 100px;
+        /* TARJETAS DE CONTENIDO */
+        .grid-preview { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
+        .preview-card { 
+            background: rgba(20, 20, 20, 0.6); 
+            padding: 40px; border-radius: 20px; 
+            border: 1px solid rgba(255,255,255,0.05); 
+            text-align: center; transition: 0.4s;
+            backdrop-filter: blur(10px);
         }
-        .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; margin-bottom: 50px; }
-        .footer-logo h2 { font-size: 1.8rem; margin-bottom: 15px; }
-        .footer-logo p { color: #555; font-size: 0.9rem; line-height: 1.6; }
-        .footer-links h4 { margin-bottom: 20px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
-        .footer-links ul { list-style: none; }
-        .footer-links li { margin-bottom: 10px; }
-        .footer-links a { color: #888; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
-        .footer-links a:hover { color: white; padding-left: 5px; }
-        
-        .footer-bottom { 
-            text-align: center; 
-            padding-top: 30px; 
-            border-top: 1px solid rgba(255,255,255,0.05); 
-            color: #444; 
-            font-size: 0.8rem; 
-        }
-        .dev-credit { color: #6c5ce7; font-weight: bold; }
+        .preview-card:hover { border-color: #6c5ce7; transform: translateY(-10px); }
+        .preview-card i { font-size: 2.5rem; color: #6c5ce7; margin-bottom: 20px; }
+        .preview-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
+        .preview-card p { color: #888; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
+        .btn-small { color: #6c5ce7; text-decoration: none; font-weight: bold; font-size: 0.9rem; text-transform: uppercase; }
+
+        /* BLOQUE DE HISTORIA RÁPIDA */
+        .quick-history { background: rgba(108, 92, 231, 0.1); padding: 60px; border-radius: 30px; border: 1px solid rgba(108, 92, 231, 0.2); margin-top: 50px; display: flex; align-items: center; gap: 40px; }
+        .quick-history-text { flex: 1; }
+        .quick-history-num { font-size: 5rem; font-weight: 900; color: rgba(108, 92, 231, 0.3); }
     </style>
 </head>
 <body>
     <div class="overlay"></div>
-
     <nav>
-        <div class="nav-left"><img src="./fondo-blacno.jpg" alt="Society Logo"></div>
+        <div class="nav-left"><img src="./fondo-blacno.jpg" alt="Logo"></div>
         <ul class="nav-center">
             <li><a href="index.html" class="active">Inicio</a></li>
             <li><a href="eventos.html">Eventos</a></li>
@@ -98,109 +81,71 @@
             <li><a href="creditos.html">Créditos</a></li>
         </ul>
         <div class="nav-right">
-            <a href="https://discord.gg/PagKyaJ7" target="_blank" class="btn-discord-nav">Únete al Discord</a>
+            <a href="https://discord.gg/PagKyaJ7" target="_blank" class="btn-discord-nav">Discord</a>
         </div>
     </nav>
 
     <section class="hero reveal">
-        <h1>SOCIETY STUDIOS</h1>
-        <p>Expertos en la creación de mundos y eventos competitivos en Minecraft. Donde la técnica y la diversión se encuentran.</p>
-        <div style="display: flex; gap: 15px;">
-            <a href="eventos.html" style="background: #6c5ce7; color: white; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: bold;">Ver Eventos</a>
-            <a href="Nosotros.html" style="border: 1px solid #444; color: white; padding: 12px 30px; border-radius: 8px; text-decoration: none;">Conócenos</a>
-        </div>
+        <h1>Society Studios</h1>
+        <p>Creando experiencias únicas en Minecraft desde 2023. Eventos, comunidad y pasión en un solo lugar.</p>
+        <a href="#explorar" class="btn-main">Explorar Universo</a>
     </section>
 
-    <div class="container">
+    <div class="section-container" id="explorar">
         
-        <section class="reveal">
-            <div style="text-align: center; margin-bottom: 40px;">
-                <h2 style="font-size: 2.5rem;">Nuestra Filosofía</h2>
+        <div class="grid-preview">
+            <div class="preview-card reveal">
+                <i class="fas fa-calendar-check"></i>
+                <h3>Próximos Eventos</h3>
+                <p>No te pierdas nuestras próximas competiciones Hardcore y desafíos comunitarios.</p>
+                <a href="eventos.html" class="btn-small">Ver Calendario →</a>
             </div>
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3>Nuestra Misión</h3>
-                    <p>Elevar la experiencia de los jugadores a través de eventos dinámicos y sistemas técnicos personalizados que desafían lo convencional.</p>
-                </div>
-                <div class="info-card">
-                    <h3>Nuestra Visión</h3>
-                    <p>Ser el estudio referente en el mundo hispano para eventos masivos de Minecraft, innovando en cada temporada.</p>
-                </div>
-            </div>
-        </section>
 
-        <section class="history-preview reveal">
-            <h2 style="font-size: 2.2rem;">Trayectoria Imparable</h2>
-            <p style="color: #888; margin-top: 10px;">Desde 2023, hemos marcado hitos en la comunidad.</p>
-            <div class="step-row">
-                <div class="step"><h4>01</h4><p>SafioLand</p></div>
-                <div class="step"><h4>02</h4><p>HardcoreCraft</p></div>
-                <div class="step"><h4>03</h4><p>Expansión</p></div>
-                <div class="step"><h4>04</h4><p>Era Digital</p></div>
+            <div class="preview-card reveal">
+                <i class="fas fa-users"></i>
+                <h3>Nuestro Equipo</h3>
+                <p>Conoce nuestra misión, visión y los valores que impulsan a Society Studios.</p>
+                <a href="Nosotros.html" class="btn-small">Sobre Nosotros →</a>
             </div>
-            <br><br>
-            <a href="historia.html" style="color: #6c5ce7; text-decoration: none; font-weight: bold; border-bottom: 1px solid #6c5ce7;">Leer cronología completa</a>
-        </section>
 
-        <section class="reveal" style="text-align: center; padding: 50px 0;">
-            <h2 style="font-size: 2.2rem; margin-bottom: 20px;">Liderazgo Creativo</h2>
-            <p style="color: #aaa; max-width: 600px; margin: 0 auto 30px;">Detrás de cada bloque y cada línea de código hay un equipo apasionado trabajando para ti.</p>
-            <div style="display: flex; justify-content: center; gap: 20px;">
-                <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 15px; width: 200px;">
-                    <strong style="color: #6c5ce7;">Mr_black</strong><br><small>Web Developer</small>
-                </div>
-                <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 15px; width: 200px;">
-                    <strong style="color: #6c5ce7;">Adriana</strong><br><small>Colaboradora</small>
-                </div>
+            <div class="preview-card reveal">
+                <i class="fas fa-code"></i>
+                <h3>El Staff</h3>
+                <p>Descubre a las mentes creativas y desarrolladores detrás de este gran proyecto.</p>
+                <a href="creditos.html" class="btn-small">Ver Créditos →</a>
             </div>
-            <br>
-            <a href="creditos.html" style="color: #888; text-decoration: none; font-size: 0.9rem;">Ver equipo completo →</a>
-        </section>
+        </div>
+
+        <div class="quick-history reveal">
+            <div class="quick-history-num">01</div>
+            <div class="quick-history-text">
+                <h2 style="font-size: 2rem; margin-bottom: 10px;">Donde todo comenzó</h2>
+                <p style="color: #ccc; line-height: 1.8;">Society Studios nació de la idea de Steemon para elevar la calidad de los eventos comunitarios. Desde nuestro primer hito "SafioLand", hemos evolucionado constantemente.</p>
+                <br>
+                <a href="historia.html" class="btn-small" style="color: white; border-bottom: 2px solid #6c5ce7; padding-bottom: 5px;">Leer Historia Completa</a>
+            </div>
+        </div>
 
     </div>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <h2>Society Studios</h2>
-                <p>La productora de eventos definitiva para Minecraft. Innovación, calidad y comunidad desde Sabanalarga para el mundo.</p>
-            </div>
-            <div class="footer-links">
-                <h4>Navegación</h4>
-                <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="eventos.html">Eventos</a></li>
-                    <li><a href="historia.html">Historia</a></li>
-                    <li><a href="Nosotros.html">Nosotros</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Social</h4>
-                <ul>
-                    <li><a href="https://www.tiktok.com/@studios_de_society" target="_blank">TikTok</a></li>
-                    <li><a href="https://discord.gg/PagKyaJ7" target="_blank">Discord</a></li>
-                    <li><a href="creditos.html">Créditos</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Society Studios. Todos los derechos reservados.</p>
-            <p>Diseñado y desarrollado por <span class="dev-credit">Alfonso (Mr_black)</span> en colaboración con <span class="dev-credit">Adriana</span>.</p>
-        </div>
-    </footer>
-
     <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                } else {
-                    entry.target.classList.remove('active');
-                }
-            });
-        }, { threshold: 0.1 });
+        document.addEventListener("DOMContentLoaded", function() {
+            const revealElements = document.querySelectorAll('.reveal');
 
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+            const revealOnScroll = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    } else {
+                        entry.target.classList.remove('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            revealElements.forEach(element => {
+                revealOnScroll.observe(element);
+            });
+        });
     </script>
 </body>
 </html>
