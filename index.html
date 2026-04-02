@@ -9,7 +9,7 @@
         
         body { 
             background-color: #050505;
-            background-image: url('./fondo.jpg'); 
+            background-image: url('./fondo.jpg'); /* Tu fondo morado */
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -63,20 +63,95 @@
         .nav-links a:hover { color: #fff; }
 
         .nav-right { flex: 1; display: flex; justify-content: flex-end; }
-        .btn-discord {
+        .btn-discord-nav {
             background: #fff; color: #000; padding: 8px 20px; 
             border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 0.8rem;
         }
 
-        /* CONTENIDO */
+        /* --- SECCIÓN HERO (NUEVA ESTRUCTURA) --- */
         .hero { 
             height: 100vh; display: flex; flex-direction: column; 
-            justify-content: center; align-items: center; text-align: center; 
-            padding: 20px;
+            justify-content: center; align-items: flex-start; text-align: left; 
+            padding: 0 10%; position: relative;
+        }
+
+        .hero-info-wrapper {
+            position: relative;
+            z-index: 2;
+            max-width: 650px;
+        }
+
+        .subtitle {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            color: #b3b3b3;
+            margin-bottom: 10px;
         }
         
-        h1 { font-size: 4.5rem; text-shadow: 0 5px 20px rgba(0,0,0,0.8); margin-bottom: 15px; letter-spacing: 2px; }
-        p { font-size: 1.2rem; color: #ddd; max-width: 600px; line-height: 1.5; }
+        h1 { 
+            font-size: 3.5rem; 
+            text-shadow: 0 5px 20px rgba(0,0,0,0.8); 
+            margin-bottom: 15px; 
+            letter-spacing: 1px; 
+            line-height: 1.1;
+        }
+
+        .description { 
+            font-size: 1.1rem; 
+            color: #ddd; 
+            margin-bottom: 30px; 
+            line-height: 1.6; 
+        }
+
+        /* --- BOTONES DE ACCIÓN --- */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .btn-main {
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .btn-white { background: white; color: black; }
+        .btn-outline { border: 1px solid #4a5568; color: white; background: rgba(255,255,255,0.05); }
+        .btn-main:hover { transform: translateY(-3px); opacity: 0.9; }
+
+        /* --- ENLACES SOCIALES DE ABAJO --- */
+        .social-links-footer {
+            display: flex;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .social-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 1.2rem;
+            opacity: 0.7;
+            transition: 0.3s;
+        }
+
+        .social-item:hover {
+            opacity: 1;
+            color: white;
+        }
+
+        .social-icon {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
     </style>
 </head>
 <body>
@@ -96,13 +171,30 @@
         </ul>
 
         <div class="nav-right">
-            <a href="#" class="btn-discord">DISCORD</a>
+            <a href="https://discord.gg/PagKyaJ7" target="_blank" class="btn-discord-nav">DISCORD</a>
         </div>
     </nav>
 
     <div class="hero">
-        <h1>SOCIETY STUDIOS</h1>
-        <p>Expertos en la creación de experiencias y eventos únicos dentro de Minecraft.</p>
+        <div class="hero-info-wrapper">
+            <div class="subtitle">Minecraft Event Studio</div>
+            <h1>Creando experiencias únicas en Minecraft desde 2026</h1>
+            <p class="description">Studio profesional dedicado a organizar eventos épicos. Society Studios transforma tus ideas en mundos interactivos y emocionantes.</p>
+            
+            <div class="action-buttons">
+                <a href="eventos.html" class="btn-main btn-white">Ver Eventos</a>
+                <a href="#" class="btn-main btn-outline">Conocer Más</a>
+            </div>
+
+            <div class="social-links-footer">
+                <a href="https://discord.gg/PagKyaJ7" target="_blank" class="social-item">
+                    <span class="social-icon">d</span> <span>Discord PagKyaJ7</span>
+                </div>
+                <a href="#" target="_blank" class="social-item">
+                    <span class="social-icon">t</span> <span>@studios_de_society</span>
+                </div>
+            </div>
+        </div>
     </div>
 
 </body>
