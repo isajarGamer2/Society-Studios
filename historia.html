@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Society Studios | Historia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background-color: #050505;
+            background-image: url('./fondo.jpg'); 
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            color: white; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        }
+        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: -1; }
+        
+        /* BARRA DE NAVEGACIÓN */
+        nav { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 0 5%; height: 85px; background: rgba(0, 0, 0, 0.95); 
+            backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; 
+            z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .nav-left img { height: 40px; width: auto; }
+        .nav-center { display: flex; list-style: none; gap: 30px; align-items: center; }
+        .nav-center a { color: #888; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: 0.3s; position: relative; padding-bottom: 5px; }
+        .nav-center a.active { color: white; border-bottom: 2px solid white; }
+        .nav-center a:hover { color: white; }
+        .nav-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 15px; }
+        .social-box { display: flex; gap: 10px; border-right: 1px solid rgba(255,255,255,0.1); padding-right: 20px; }
+        .social-icon { width: 35px; height: 35px; background: rgba(255,255,255,0.05); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #ccc; text-decoration: none; font-size: 1.1rem; transition: 0.3s; border: 1px solid rgba(255,255,255,0.05); }
+        .btn-discord-nav { background: #fff; color: #000; padding: 10px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 0.85rem; }
+
+        /* CABECERA */
+        .history-header { padding: 160px 10% 60px; text-align: left; }
+        .label { color: #555; text-transform: uppercase; letter-spacing: 2px; font-size: 0.75rem; font-weight: bold; margin-bottom: 10px; }
+        h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        .history-header p { color: #888; font-size: 1.1rem; }
+
+        /* LÍNEA DE TIEMPO */
+        .timeline-container { 
+            position: relative; 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            padding: 0 20px 100px;
+        }
+
+        /* La línea vertical */
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            top: 0; bottom: 0; left: 150px;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline-year {
+            width: 150px;
+            font-size: 2rem;
+            font-weight: bold;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            position: relative;
+        }
+
+        /* El círculo en la línea */
+        .timeline-year::after {
+            content: '';
+            position: absolute;
+            right: -6px;
+            top: 15px;
+            width: 10px;
+            height: 10px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #fff;
+            z-index: 2;
+        }
+
+        .timeline-content {
+            flex: 1;
+            margin-left: 50px;
+            background: rgba(20, 20, 20, 0.6);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+        }
+
+        .timeline-content h3 { font-size: 1.5rem; margin-bottom: 10px; color: #fff; }
+        .timeline-content p { color: #999; line-height: 1.6; font-size: 1rem; }
+        .date-label { font-size: 0.8rem; color: #444; font-weight: bold; display: block; margin-bottom: 5px; }
+
+        @media (max-width: 768px) {
+            .timeline-container::after { left: 20px; }
+            .timeline-item { flex-direction: column; }
+            .timeline-year { width: 100%; margin-bottom: 20px; padding-left: 40px; }
+            .timeline-year::after { left: 15px; }
+            .timeline-content { margin-left: 40px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <nav>
+        <div class="nav-left"><img src="./fondo-blacno.jpg" alt="Society Logo"></div>
+        <ul class="nav-center">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="eventos.html">Eventos</a></li>
+            <li><a href="historia.html" class="active">Historia</a></li>
+            <li><a href="#">Nosotros</a></li>
+            <li><a href="#">Créditos</a></li>
+        </ul>
+        <div class="nav-right">
+            <div class="social-box">
+                <a href="https://www.tiktok.com/@studios_de_society" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                <a href="https://discord.gg/PagKyaJ7" target="_blank" class="social-icon"><i class="fab fa-discord"></i></a>
+            </div>
+            <a href="https://discord.gg/PagKyaJ7" target="_blank" class="btn-discord-nav">Discord</a>
+        </div>
+    </nav>
+
+    <header class="history-header">
+        <div class="label">Nuestra Trayectoria</div>
+        <h1>Historia de Society Studios</h1>
+        <p>Años de innovación y experiencias inolvidables en el mundo de Minecraft.</p>
+    </header>
+
+    <div class="timeline-container">
+        
+        <div class="timeline-item">
+            <div class="timeline-year">2026</div>
+            <div class="timeline-content">
+                <span class="date-label">2026</span>
+                <h3>Próximamente</h3>
+                <p>Nuevos proyectos en camino. Estamos preparando experiencias revolucionarias que marcarán un antes y un después en nuestros eventos.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-year">2025</div>
+            <div class="timeline-content">
+                <span class="date-label">2025</span>
+                <h3>Fundación y Primeros Pasos</h3>
+                <p>El nacimiento oficial de Society Studios. Comenzamos a consolidar nuestro equipo de desarrollo y diseño para ofrecer la mejor calidad.</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
