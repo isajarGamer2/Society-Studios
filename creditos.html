@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Society Studios | Créditos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background-color: #050505;
+            background-image: url('./fondo.jpg'); 
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            color: white; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        }
+        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: -1; }
+        
+        /* NAVEGACIÓN */
+        nav { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 0 5%; height: 85px; background: rgba(0, 0, 0, 0.95); 
+            backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; 
+            z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .nav-left img { height: 40px; width: auto; }
+        .nav-center { display: flex; list-style: none; gap: 30px; align-items: center; flex: 2; justify-content: center; }
+        .nav-center a { color: #888; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: 0.3s; position: relative; padding-bottom: 5px; }
+        .nav-center a.active { color: white; border-bottom: 2px solid white; }
+        .nav-center a:hover { color: white; }
+        .nav-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 15px; }
+        .social-box { display: flex; gap: 10px; border-right: 1px solid rgba(255,255,255,0.1); padding-right: 20px; }
+        .social-icon { width: 35px; height: 35px; background: rgba(255,255,255,0.05); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #ccc; text-decoration: none; font-size: 1.1rem; border: 1px solid rgba(255,255,255,0.05); }
+        .btn-discord-nav { background: #fff; color: #000 !important; padding: 10px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 0.85rem; }
+
+        /* SECCIÓN CRÉDITOS */
+        .credits-container { padding: 160px 10% 100px; text-align: center; }
+        .label { color: #555; text-transform: uppercase; letter-spacing: 2px; font-size: 0.75rem; font-weight: bold; margin-bottom: 10px; }
+        h1 { font-size: 3.5rem; margin-bottom: 50px; }
+
+        /* TARJETA PRINCIPAL (Mr_black) */
+        .main-dev {
+            background: rgba(20, 20, 20, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 500px;
+            margin: 0 auto 40px;
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+        .avatar-large {
+            width: 150px;
+            height: 150px;
+            background: #2c2f33; /* Color Discord */
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            border: 4px solid #5865F2;
+        }
+        .main-dev h2 { font-size: 2rem; margin-bottom: 5px; }
+        .main-dev p { color: #5865F2; font-weight: bold; margin-bottom: 15px; }
+        .discord-tag { background: rgba(255,255,255,0.05); padding: 8px 15px; border-radius: 5px; font-family: monospace; color: #aaa; }
+
+        /* TARJETA PEQUEÑA (ᗩᗪᖇᎥᗩᑎ) */
+        .sub-dev {
+            background: rgba(20, 20, 20, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-align: left;
+        }
+        .avatar-small {
+            width: 60px;
+            height: 60px;
+            background: #23272a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        .sub-dev h3 { font-size: 1.1rem; margin-bottom: 2px; }
+        .sub-dev span { color: #777; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <nav>
+        <div class="nav-left"><img src="./fondo-blacno.jpg" alt="Society Logo"></div>
+        <ul class="nav-center">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="eventos.html">Eventos</a></li>
+            <li><a href="historia.html">Historia</a></li>
+            <li><a href="Nosotros.html">Nosotros</a></li>
+            <li><a href="creditos.html" class="active">Créditos</a></li>
+        </ul>
+        <div class="nav-right">
+            <div class="social-box">
+                <a href="https://www.tiktok.com/@studios_de_society" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                <a href="https://discord.gg/PagKyaJ7" target="_blank" class="social-icon"><i class="fab fa-discord"></i></a>
+            </div>
+            <a href="https://discord.gg/PagKyaJ7" target="_blank" class="btn-discord-nav">Discord</a>
+        </div>
+    </nav>
+
+    <div class="credits-container">
+        <div class="label">RECONOCIMIENTOS</div>
+        <h1>Equipo de Desarrollo</h1>
+
+        <div class="main-dev">
+            <div class="avatar-large">
+                <i class="fab fa-discord"></i>
+            </div>
+            <h2>Mr_black</h2>
+            <p>Desarrollador Principal de la Web</p>
+            <span class="discord-tag">isajarelpro21</span>
+        </div>
+
+        <div class="sub-dev">
+            <div class="avatar-small">
+                <i class="fab fa-discord"></i>
+            </div>
+            <div class="sub-info">
+                <h3>ᗩᗪᖇᎥᗩᑎ</h3>
+                <span>Colaborador / dabudomo</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
