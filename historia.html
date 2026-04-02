@@ -17,45 +17,54 @@
             color: white; 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
         }
-        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: -1; }
+        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: -1; }
         
-        /* BARRA DE NAVEGACIÓN CORREGIDA */
+        /* NAVEGACIÓN CENTRADA */
         nav { 
             display: flex; justify-content: space-between; align-items: center; 
             padding: 0 5%; height: 85px; background: rgba(0, 0, 0, 0.95); 
             backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; 
             z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.05);
         }
-        .nav-left { flex: 1; display: flex; align-items: center; }
-        .nav-left img { height: 40px; width: auto; }
-
-        .nav-center { display: flex; list-style: none; gap: 30px; align-items: center; flex: 2; justify-content: center; }
-        .nav-center a { color: #888; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: 0.3s; position: relative; padding-bottom: 5px; }
-        .nav-center a.active { color: white; border-bottom: 2px solid white; }
-        .nav-center a:hover { color: white; }
-
-        .nav-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 15px; }
-        .social-box { display: flex; gap: 10px; border-right: 1px solid rgba(255,255,255,0.1); padding-right: 20px; }
-        .social-icon { width: 35px; height: 35px; background: rgba(255,255,255,0.05); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #ccc; text-decoration: none; font-size: 1.1rem; transition: 0.3s; border: 1px solid rgba(255,255,255,0.05); }
+        .nav-left, .nav-right { flex: 1; display: flex; align-items: center; }
+        .nav-left img { height: 40px; }
+        .nav-center { display: flex; list-style: none; gap: 30px; flex: 2; justify-content: center; }
+        .nav-center a { color: #888; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: 0.3s; position: relative; }
+        .nav-center a.active { color: white; }
+        .nav-center a.active::after { content: ''; position: absolute; bottom: -8px; left: 0; width: 100%; height: 2px; background: white; }
+        .nav-right { justify-content: flex-end; gap: 15px; }
+        .social-icon { width: 35px; height: 35px; background: rgba(255,255,255,0.05); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #ccc; text-decoration: none; border: 1px solid rgba(255,255,255,0.05); }
         .btn-discord-nav { background: #fff; color: #000 !important; padding: 10px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 0.85rem; }
 
-        /* CONTENIDO HISTORIA */
-        .history-header { padding: 160px 10% 60px; text-align: left; }
-        .label { color: #555; text-transform: uppercase; letter-spacing: 2px; font-size: 0.75rem; font-weight: bold; margin-bottom: 10px; }
-        h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        /* LINEA DE TIEMPO */
+        .history-container { max-width: 900px; margin: 160px auto 100px; padding: 0 20px; }
+        .timeline { position: relative; border-left: 2px solid rgba(108, 92, 231, 0.3); padding-left: 40px; margin-left: 20px; }
         
-        .timeline-container { position: relative; max-width: 1000px; margin: 0 auto; padding: 0 20px 100px; }
-        .timeline-container::after { content: ''; position: absolute; width: 2px; background: rgba(255, 255, 255, 0.1); top: 0; bottom: 0; left: 150px; }
-        .timeline-item { display: flex; margin-bottom: 50px; position: relative; z-index: 1; }
-        .timeline-year { width: 150px; font-size: 2rem; font-weight: bold; position: relative; }
-        .timeline-year::after { content: ''; position: absolute; right: -6px; top: 15px; width: 10px; height: 10px; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #fff; }
-        .timeline-content { flex: 1; margin-left: 50px; background: rgba(20, 20, 20, 0.6); padding: 30px; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.05); }
+        .timeline-item { position: relative; margin-bottom: 50px; }
+        .timeline-item::before { 
+            content: ''; position: absolute; left: -51px; top: 5px; 
+            width: 20px; height: 20px; background: #6c5ce7; border-radius: 50%; 
+            border: 4px solid #050505; box-shadow: 0 0 10px #6c5ce7;
+        }
+
+        .history-card { 
+            background: rgba(20, 20, 20, 0.6); 
+            padding: 30px; border-radius: 15px; 
+            border: 1px solid rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+        }
+        .history-card span { color: #6c5ce7; font-weight: bold; font-size: 1.2rem; display: block; margin-bottom: 10px; }
+        .history-card h3 { font-size: 1.8rem; margin-bottom: 15px; }
+        .history-card p { color: #aaa; line-height: 1.7; }
+
+        .intro-text { margin-bottom: 60px; text-align: center; }
+        .intro-text p { font-size: 1.2rem; color: #ddd; max-width: 700px; margin: 0 auto; line-height: 1.8; }
     </style>
 </head>
 <body>
     <div class="overlay"></div>
     <nav>
-        <div class="nav-left"><img src="./fondo-blacno.jpg" alt="Society Logo"></div>
+        <div class="nav-left"><img src="./fondo-blacno.jpg" alt="Logo"></div>
         <ul class="nav-center">
             <li><a href="index.html">Inicio</a></li>
             <li><a href="eventos.html">Eventos</a></li>
@@ -64,25 +73,52 @@
             <li><a href="creditos.html">Créditos</a></li>
         </ul>
         <div class="nav-right">
-            <div class="social-box">
-                <a href="https://www.tiktok.com/@studios_de_society" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
-                <a href="https://discord.gg/PagKyaJ7" target="_blank" class="social-icon"><i class="fab fa-discord"></i></a>
+            <div class="social-box" style="display: flex; gap: 10px; border-right: 1px solid rgba(255,255,255,0.1); padding-right: 20px;">
+                <a href="https://www.tiktok.com/@studios_de_society" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                <a href="https://discord.gg/PagKyaJ7" class="social-icon"><i class="fab fa-discord"></i></a>
             </div>
-            <a href="https://discord.gg/PagKyaJ7" target="_blank" class="btn-discord-nav">Discord</a>
+            <a href="https://discord.gg/PagKyaJ7" class="btn-discord-nav">Discord</a>
         </div>
     </nav>
 
-    <header class="history-header">
-        <div class="label">Nuestra Trayectoria</div>
-        <h1>Historia de Society Studios</h1>
-    </header>
+    <div class="history-container">
+        <div class="intro-text">
+            <div style="color: #555; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; margin-bottom: 10px;">Nuestra Trayectoria</div>
+            <h1 style="font-size: 3.5rem; margin-bottom: 20px;">Historia de Society Studios</h1>
+            <p>Desde nuestros inicios, hemos buscado romper las barreras de lo convencional en Minecraft, creando eventos que no solo son juegos, sino historias inolvidables para nuestra comunidad.</p>
+        </div>
 
-    <div class="timeline-container">
-        <div class="timeline-item">
-            <div class="timeline-year">2026</div>
-            <div class="timeline-content">
-                <h3>Próximamente</h3>
-                <p>Nuevos proyectos en camino para la comunidad.</p>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="history-card">
+                    <span>2023 - 01</span>
+                    <h3>El Comienzo: SafioLand</h3>
+                    <p>Inspirado en los grandes desafíos hardcore, lanzamos nuestro primer evento multijugador con un enfoque en la supervivencia extrema y la narrativa emergente.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="history-card">
+                    <span>2024 - 02</span>
+                    <h3>HardcoreCraft 1</h3>
+                    <p>Definimos nuestro estilo con el sistema de 3 vidas y PvP técnico, estableciendo a Society Studios como un referente de calidad.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="history-card">
+                    <span>2025 - 03</span>
+                    <h3>Expansión Técnica</h3>
+                    <p>Implementamos sistemas personalizados y mecánicas únicas de recolección y combate, mejorando la interacción del usuario y la estabilidad de nuestros servidores para eventos masivos.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="history-card">
+                    <span>2026 - 04</span>
+                    <h3>Nueva Era Digital</h3>
+                    <p>Con el lanzamiento de nuestra plataforma web oficial y la integración de redes sociales como TikTok, llevamos la experiencia de Society Studios a un público global, conectando a creadores y jugadores.</p>
+                </div>
             </div>
         </div>
     </div>
