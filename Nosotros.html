@@ -16,6 +16,7 @@
             background-attachment: fixed;
             color: white; 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            overflow-x: hidden;
         }
         .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: -1; }
         
@@ -37,21 +38,83 @@
         .social-icon { width: 35px; height: 35px; background: rgba(255,255,255,0.05); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #ccc; text-decoration: none; border: 1px solid rgba(255,255,255,0.05); }
         .btn-discord-nav { background: #fff; color: #000 !important; padding: 10px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 0.85rem; }
 
-        /* CONTENIDO */
+        /* CONTENIDO PRINCIPAL */
         .content-container { max-width: 1000px; margin: 0 auto; padding: 160px 20px 100px; }
         .about-header { text-align: left; margin-bottom: 60px; }
         .label { color: #555; text-transform: uppercase; letter-spacing: 2px; font-size: 0.75rem; font-weight: bold; margin-bottom: 10px; }
         h1 { font-size: 4rem; margin-bottom: 15px; }
         
+        /* Secciones de texto generales */
         .text-section { margin-bottom: 50px; }
         .text-section h2 { font-size: 2.2rem; margin-bottom: 20px; color: #fff; position: relative; display: inline-block; padding-bottom: 10px; }
         .text-section h2::after { content: ''; position: absolute; left: 0; bottom: 0; width: 60px; height: 3px; background: #6c5ce7; border-radius: 2px; }
         .text-section p { color: #aaa; line-height: 1.8; font-size: 1.1rem; margin-bottom: 20px; }
 
+        /* NUEVO DISEÑO DE BLOQUES PARA MISIÓN Y VISIÓN (HORIZONTALES) */
+        .block-sections {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px; /* Espaciado entre bloques */
+            margin-bottom: 50px;
+        }
+
+        /* Estilo de tarjeta/bloque para Misión y Visión */
+        .block-card {
+            flex: 1; /* Ancho igual para ambos bloques */
+            background: rgba(20, 20, 20, 0.6);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.05);
+            backdrop-filter: blur(5px);
+            display: flex; /* Para apilar título y texto verticalmente */
+            flex-direction: column;
+        }
+
+        .block-card h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #fff;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        .block-card h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background: #6c5ce7;
+            border-radius: 2px;
+        }
+
+        .block-card p {
+            color: #aaa;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 0; /* Limpiar margen para que el espaciado lo controle el flex */
+            flex-grow: 1; /* Permite que el texto expanda las tarjetas a la misma altura si es necesario */
+        }
+
+        /* REJILLA DE VALORES */
         .values-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; margin-top: 40px; }
         .value-card { background: rgba(20, 20, 20, 0.6); padding: 30px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); backdrop-filter: blur(5px); }
         .value-card h3 { color: #6c5ce7; margin-bottom: 10px; font-size: 1.3rem; }
         .value-card p { color: #888; font-size: 0.95rem; line-height: 1.6; }
+
+        /* ESTILOS DE ANIMACIÓN SCROLL REVEAL */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px); /* Movimiento ligero hacia abajo */
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0); /* Movimiento hacia arriba a la posición final */
+        }
+
     </style>
 </head>
 <body>
@@ -75,27 +138,29 @@
     </nav>
 
     <div class="content-container">
-        <header class="about-header">
+        <header class="about-header reveal">
             <div class="label">SOBRE NOSOTROS</div>
             <h1>Nuestra Esencia</h1>
         </header>
 
-        <section class="text-section">
+        <section class="text-section reveal">
             <h2>Nuestra Historia</h2>
             <p>Society Studios fue creado por Steemon trayendo las primeras experiencias y diferentes eventos tratando de darles a los jugadores nuevas experiencias, con el objetivo de elevar la calidad de los eventos comunitarios en Minecraft.</p>
         </section>
 
-        <section class="text-section">
-            <h2>Misión</h2>
-            <p>Nuestra misión es ofrecer la mejor experiencia posible a cada jugador que participa en nuestros mundos. Disfrutamos creando y realizando eventos que desafían los límites convencionales, enfocándonos en la diversión y la integración de la comunidad.</p>
-        </section>
+        <div class="block-sections reveal">
+            <div class="block-card">
+                <h2>Misión</h2>
+                <p>Nuestra misión es ofrecer la mejor experiencia posible a cada jugador que participa en nuestros mundos. Disfrutamos creando y realizando eventos que desafían los límites convencionales, enfocándonos en la diversión y la integración de la comunidad.</p>
+            </div>
 
-        <section class="text-section">
-            <h2>Visión</h2>
-            <p>Nuestra visión es convertirnos en el estudio de referencia para eventos masivos en Minecraft dentro de la comunidad hispanohablante. Buscamos innovar constantemente en mecánicas de juego y producción visual, creando un estándar de excelencia que inspire a otros creadores y emocione a miles de jugadores alrededor del mundo.</p>
-        </section>
+            <div class="block-card">
+                <h2>Visión</h2>
+                <p>Nuestra visión es convertirnos en el estudio de referencia para eventos masivos en Minecraft dentro de la comunidad hispanohablante. Buscamos innovar constantemente en mecánicas de juego y producción visual, creando un estándar de excelencia que inspire a otros creadores y emocione a miles de jugadores alrededor del mundo.</p>
+            </div>
+        </div>
 
-        <div class="values-grid">
+        <div class="values-grid reveal">
             <div class="value-card">
                 <h3>01 Pasión</h3>
                 <p>Apasionados en la creación de eventos por pura diversión y amor al juego.</p>
@@ -114,5 +179,33 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Selecciona todos los elementos con la clase .reveal
+            const revealElements = document.querySelectorAll('.reveal');
+
+            // Crea un Intersection Observer
+            const revealOnScroll = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    // Si el elemento entra en el campo de visión (intersection)
+                    if (entry.isIntersecting) {
+                        // Añade la clase .active para activar la animación CSS
+                        entry.target.classList.add('active');
+                        // Deja de observar el elemento una vez animado
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                // Configuración: revelar cuando el 10% del elemento es visible
+                threshold: 0.1
+            });
+
+            // Empieza a observar cada elemento
+            revealElements.forEach(element => {
+                revealOnScroll.observe(element);
+            });
+        });
+    </script>
 </body>
 </html>
