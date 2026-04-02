@@ -3,31 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Society Studios | Eventos</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <title>Society Studios | Oficial</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body, html {
-            height: 100%;
-            font-family: 'Inter', sans-serif;
+            width: 100%;
             background-color: #000;
+            font-family: 'Segoe UI', sans-serif;
             color: white;
             overflow-x: hidden;
         }
 
-        /* --- FONDO --- */
-        .background {
+        /* --- FONDO GLOBAL --- */
+        .global-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background-image: url('fondo.jpg'); /* Tu fondo morado */
+            background-image: url('./fondo.jpg'); /* Ruta forzada para GitHub */
             background-size: cover;
             background-position: center;
             z-index: -2;
@@ -39,7 +39,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.9) 100%);
+            background: rgba(0, 0, 0, 0.5);
             z-index: -1;
         }
 
@@ -48,7 +48,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 8%;
+            padding: 15px 5%;
             background: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(10px);
             position: fixed;
@@ -59,7 +59,8 @@
         }
 
         .nav-logo img {
-            height: 40px;
+            height: 45px;
+            width: auto;
         }
 
         .nav-links {
@@ -69,159 +70,139 @@
         }
 
         .nav-links a {
+            color: #ccc;
             text-decoration: none;
-            color: #bbb;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: white;
+            font-weight: bold;
+            font-size: 0.85rem;
+            text-transform: uppercase;
         }
 
         .btn-discord {
-            background: white;
-            color: black;
+            background: #fff;
+            color: #000;
             padding: 8px 20px;
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 0.8rem;
         }
 
-        /* --- SECCIÓN DE EVENTOS --- */
-        .container {
-            margin-top: 150px;
-            padding: 0 10%;
+        /* --- SECCIÓN INICIO --- */
+        #inicio {
+            height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        #inicio h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            text-shadow: 0 5px 20px #000;
+        }
+
+        /* --- SECCIÓN EVENTOS --- */
+        #eventos {
+            min-height: 100vh;
+            padding: 120px 5% 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .event-card {
-            background: rgba(20, 20, 20, 0.8);
+            background: rgba(20, 20, 20, 0.85);
             border-radius: 20px;
             width: 100%;
-            max-width: 900px;
+            max-width: 950px;
             display: flex;
-            align-items: center;
             padding: 30px;
             gap: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
         }
 
         .event-number {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: bold;
-            color: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.2);
         }
 
-        .event-image {
-            width: 350px;
-            height: 200px;
-            border-radius: 15px;
+        .event-img-container {
+            width: 400px;
+            height: 230px;
+            border-radius: 12px;
             overflow: hidden;
             flex-shrink: 0;
         }
 
-        .event-image img {
+        .event-img-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .event-info {
-            flex-grow: 1;
+        .event-text h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
         }
 
-        .event-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .event-info h2 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-        }
-
-        .event-year {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        .event-description {
-            color: #aaa;
-            line-height: 1.5;
+        .event-text p {
+            color: #bbb;
+            line-height: 1.6;
             margin-bottom: 20px;
-            font-size: 1rem;
-        }
-
-        .tags {
-            display: flex;
-            gap: 10px;
         }
 
         .tag {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 5px 15px;
-            border-radius: 5px;
+            background: rgba(255,255,255,0.1);
+            padding: 5px 12px;
+            border-radius: 4px;
             font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* Responsivo para celulares */
-        @media (max-width: 768px) {
-            .event-card { flex-direction: column; text-align: center; }
-            .event-image { width: 100%; }
-            .event-header { flex-direction: column; }
+            margin-right: 8px;
         }
     </style>
 </head>
 <body>
 
-    <div class="background"></div>
+    <div class="global-bg"></div>
     <div class="overlay"></div>
 
     <nav>
         <div class="nav-logo">
-            <img src="logo-blacno.jpg" alt="Society Logo">
+            <img src="./logo-blacno.jpg" alt="Logo Society">
         </div>
         <ul class="nav-links">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="#" class="active">Eventos</a></li>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#eventos">Eventos</a></li>
             <li><a href="#">Historia</a></li>
             <li><a href="#">Nosotros</a></li>
         </ul>
-        <a href="#" class="btn-discord">Discord</a>
+        <a href="#" class="btn-discord">DISCORD</a>
     </nav>
 
-    <div class="container">
+    <section id="inicio">
+        <h1>SOCIETY STUDIOS</h1>
+        <p>Experiencias únicas en Minecraft desde 2026</p>
+    </section>
+
+    <section id="eventos">
         <div class="event-card">
             <div class="event-number">01</div>
-            
-            <div class="event-image">
-                <img src="societysafioestudios.jpg" alt="Society Safio">
+            <div class="event-img-container">
+                <img src="./societysafioestudios.jpg" alt="Society Safio">
             </div>
-
-            <div class="event-info">
-                <div class="event-header">
-                    <h2>Society Safio</h2>
-                    <span class="event-year">2026</span>
-                </div>
-                <p class="event-description">
-                    Primer evento dedsafio multijugador de mucha dificultad inspirado en dedsafio 3.
-                </p>
-                <div class="tags">
+            <div class="event-text">
+                <h2>Society Safio</h2>
+                <p>Primer evento dedsafio multijugador de mucha dificultad inspirado en Dedsafio 3.</p>
+                <div>
                     <span class="tag">Mucha Dificultad</span>
                     <span class="tag">Multijugador</span>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
 </body>
 </html>
