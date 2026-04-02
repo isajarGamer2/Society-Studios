@@ -54,19 +54,18 @@
         .block-sections {
             display: flex;
             justify-content: space-between;
-            gap: 30px; /* Espaciado entre bloques */
+            gap: 30px;
             margin-bottom: 50px;
         }
 
-        /* Estilo de tarjeta/bloque para Misión y Visión */
         .block-card {
-            flex: 1; /* Ancho igual para ambos bloques */
+            flex: 1;
             background: rgba(20, 20, 20, 0.6);
             padding: 30px;
             border-radius: 15px;
             border: 1px solid rgba(255,255,255,0.05);
             backdrop-filter: blur(5px);
-            display: flex; /* Para apilar título y texto verticalmente */
+            display: flex;
             flex-direction: column;
         }
 
@@ -93,8 +92,8 @@
             color: #aaa;
             line-height: 1.8;
             font-size: 1.1rem;
-            margin-bottom: 0; /* Limpiar margen para que el espaciado lo controle el flex */
-            flex-grow: 1; /* Permite que el texto expanda las tarjetas a la misma altura si es necesario */
+            margin-bottom: 0;
+            flex-grow: 1;
         }
 
         /* REJILLA DE VALORES */
@@ -103,18 +102,18 @@
         .value-card h3 { color: #6c5ce7; margin-bottom: 10px; font-size: 1.3rem; }
         .value-card p { color: #888; font-size: 0.95rem; line-height: 1.6; }
 
-        /* ESTILOS DE ANIMACIÓN SCROLL REVEAL */
+        /* ESTILOS DE ANIMACIÓN SCROLL REVEAL (BIDIRECCIONAL) */
         .reveal {
             opacity: 0;
-            transform: translateY(30px); /* Movimiento ligero hacia abajo */
+            transform: translateY(30px); /* Estado inicial: transparente y más abajo */
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform; /* Optimización de rendimiento */
         }
 
         .reveal.active {
             opacity: 1;
-            transform: translateY(0); /* Movimiento hacia arriba a la posición final */
+            transform: translateY(0); /* Estado final: visible y en su posición */
         }
-
     </style>
 </head>
 <body>
@@ -182,26 +181,23 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Selecciona todos los elementos con la clase .reveal
             const revealElements = document.querySelectorAll('.reveal');
 
-            // Crea un Intersection Observer
-            const revealOnScroll = new IntersectionObserver((entries, observer) => {
+            const revealOnScroll = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    // Si el elemento entra en el campo de visión (intersection)
                     if (entry.isIntersecting) {
-                        // Añade la clase .active para activar la animación CSS
+                        // Si el elemento entra en pantalla, aparece
                         entry.target.classList.add('active');
-                        // Deja de observar el elemento una vez animado
-                        observer.unobserve(entry.target);
+                    } else {
+                        // Si el elemento sale de la pantalla (subiendo o bajando), se desvanece
+                        entry.target.classList.remove('active');
                     }
                 });
             }, {
-                // Configuración: revelar cuando el 10% del elemento es visible
-                threshold: 0.1
+                // threshold: 0.15 significa que la animación se activa cuando el 15% del elemento es visible
+                threshold: 0.15 
             });
 
-            // Empieza a observar cada elemento
             revealElements.forEach(element => {
                 revealOnScroll.observe(element);
             });
