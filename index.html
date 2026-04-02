@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Society Studios | Oficial</title>
     <style>
-        /* Reset básico */
         * {
             margin: 0;
             padding: 0;
@@ -13,30 +12,28 @@
         }
 
         body, html {
-            width: 100%;
             height: 100%;
-            background-color: #050505; /* Fondo oscuro por si falla la imagen */
+            font-family: sans-serif;
+            background-color: #000;
             color: white;
-            font-family: 'Segoe UI', Roboto, sans-serif;
             overflow-x: hidden;
         }
 
-        /* --- CONTENEDOR DEL FONDO --- */
-        .background-layer {
+        /* FONDO PRINCIPAL */
+        .hero-background {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
-            /* IMPORTANTE: ./ asegura que busque en la raíz de tu GitHub */
+            width: 100%;
+            height: 100%;
+            /* Usamos ./ para asegurar que busque en la misma carpeta de GitHub */
             background-image: url('./fondo.jpg'); 
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            z-index: -2;
+            z-index: -1;
         }
 
-        /* Capa de oscurecimiento */
         .overlay {
             position: fixed;
             top: 0;
@@ -44,27 +41,25 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.4);
-            z-index: -1;
+            z-index: 0;
         }
 
-        /* --- NAVBAR --- */
         nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 5%;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            position: sticky;
-            top: 0;
+            padding: 15px 50px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
             z-index: 100;
         }
 
         .nav-logo img {
-            height: 50px;
+            height: 45px;
             width: auto;
-            display: block; /* Evita espacios extra */
         }
 
         .nav-links {
@@ -74,53 +69,50 @@
         }
 
         .nav-links a {
-            color: #efefef;
             text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
+            color: #ddd;
+            font-size: 0.85rem;
+            font-weight: bold;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         .btn-discord {
-            background: #ffffff;
+            background: #fff;
             color: #000;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 8px 20px;
+            border-radius: 4px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 12px;
-            transition: 0.3s;
+            font-size: 0.75rem;
         }
 
-        /* --- TEXTO CENTRAL --- */
-        .hero {
-            height: calc(100vh - 80px);
+        .content {
+            position: relative;
+            z-index: 1;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 20px;
         }
 
-        .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 4.5rem); /* Tamaño fluido */
-            margin-bottom: 15px;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.7);
+        .content h1 {
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
         }
 
-        .hero p {
+        .content p {
             font-size: 1.1rem;
-            color: #d1d1d1;
-            max-width: 650px;
-            line-height: 1.5;
+            color: #ccc;
+            max-width: 500px;
         }
     </style>
 </head>
 <body>
 
-    <div class="background-layer"></div>
+    <div class="hero-background"></div>
     <div class="overlay"></div>
 
     <nav>
@@ -136,9 +128,9 @@
         <a href="#" class="btn-discord">UNIRSE AL DISCORD</a>
     </nav>
 
-    <main class="hero">
+    <main class="content">
         <h1>SOCIETY STUDIOS</h1>
-        <p>Expertos en la creación de experiencias y eventos únicos dentro de Minecraft. Diseñamos mundos donde la aventura no tiene límites.</p>
+        <p>Expertos en la creación de experiencias y eventos únicos dentro de Minecraft.</p>
     </main>
 
 </body>
