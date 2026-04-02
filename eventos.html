@@ -3,27 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Society Studios | Inicio</title>
+    <title>Society Studios | Eventos</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
             background-color: #050505;
-            /* IMAGEN ESPECÍFICA PARA INICIO */
-            background-image: url('./fondosocieti.jpg'); 
+            /* FONDO LIMPIO PARA EVENTOS */
+            background-image: url('./fondo.jpg'); 
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
             background-attachment: fixed;
             color: white; 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            overflow-x: hidden;
         }
 
-        .overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.4); z-index: -1;
-        }
+        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: -1; }
 
         nav { 
             display: flex; justify-content: space-between; align-items: center; 
@@ -42,20 +38,18 @@
         .nav-right { flex: 1; display: flex; justify-content: flex-end; }
         .btn-discord-nav { background: #fff; color: #000; padding: 8px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 0.8rem; }
 
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 0 10%; }
-        .hero-info-wrapper { max-width: 650px; }
-        .subtitle { text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; color: #b3b3b3; margin-bottom: 10px; }
-        h1 { font-size: 3.5rem; text-shadow: 0 5px 20px rgba(0,0,0,0.8); margin-bottom: 15px; line-height: 1.1; }
-        .description { font-size: 1.1rem; color: #ddd; margin-bottom: 30px; line-height: 1.6; }
-
-        .action-buttons { display: flex; gap: 15px; margin-bottom: 50px; }
-        .btn-main { padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 0.9rem; transition: 0.3s; }
-        .btn-white { background: white; color: black; }
-        .btn-outline { border: 1px solid #4a5568; color: white; background: rgba(255,255,255,0.05); }
-
-        .social-links-footer { display: flex; gap: 40px; margin-top: 20px; }
-        .social-item { display: flex; align-items: center; gap: 10px; color: #ccc; text-decoration: none; font-size: 1.1rem; transition: 0.3s; }
-        .social-item:hover { color: white; }
+        .container { padding-top: 150px; display: flex; justify-content: center; min-height: 100vh; padding-bottom: 50px; }
+        .card { 
+            background: rgba(20, 20, 20, 0.85); padding: 30px; border-radius: 20px; 
+            display: flex; align-items: center; gap: 30px; max-width: 950px; width: 90%; 
+            border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(5px);
+        }
+        .card img { width: 380px; border-radius: 12px; object-fit: cover; }
+        .info h2 { font-size: 2rem; margin-bottom: 10px; }
+        .info p { color: #bbb; margin-bottom: 25px; line-height: 1.6; }
+        .tag { background: rgba(255,255,255,0.05); padding: 6px 15px; border-radius: 6px; font-size: 0.7rem; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.1); margin-right: 5px; }
+        
+        @media (max-width: 900px) { .card { flex-direction: column; text-align: center; } .card img { width: 100%; } }
     </style>
 </head>
 <body>
@@ -63,26 +57,24 @@
     <nav>
         <div class="nav-logo"><img src="./logo-blacno.jpg" alt="Society Logo"></div>
         <ul class="nav-links">
-            <li><a href="index.html" style="color: white;">Inicio</a></li>
-            <li><a href="eventos.html">Eventos</a></li>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="eventos.html" style="color: white;">Eventos</a></li>
             <li><a href="#">Historia</a></li>
             <li><a href="#">Nosotros</a></li>
         </ul>
         <div class="nav-right"><a href="https://discord.gg/PagKyaJ7" target="_blank" class="btn-discord-nav">DISCORD</a></div>
     </nav>
 
-    <div class="hero">
-        <div class="hero-info-wrapper">
-            <div class="subtitle">Minecraft Event Studio</div>
-            <h1>Creando experiencias únicas en Minecraft desde 2026</h1>
-            <p class="description">Studio profesional dedicado a organizar eventos épicos. Society Studios transforma tus ideas en mundos interactivos y emocionantes.</p>
-            <div class="action-buttons">
-                <a href="eventos.html" class="btn-main btn-white">Ver Eventos</a>
-                <a href="#" class="btn-main btn-outline">Conocer Más</a>
-            </div>
-            <div class="social-links-footer">
-                <a href="https://discord.gg/PagKyaJ7" target="_blank" class="social-item"><span>Discord</span></a>
-                <a href="https://www.tiktok.com/@studios_de_society" target="_blank" class="social-item"><span>@studios_de_society</span></a>
+    <div class="container">
+        <div class="card">
+            <img src="./societysafioestudios.jpg" alt="Society Safio">
+            <div class="info">
+                <h2>Society Safio</h2>
+                <p>Primer evento dedsafio multijugador de mucha dificultad inspirado en dedsafio 3.</p>
+                <div class="tags">
+                    <span class="tag">MUCHA DIFICULTAD</span>
+                    <span class="tag">MULTIJUGADOR</span>
+                </div>
             </div>
         </div>
     </div>
