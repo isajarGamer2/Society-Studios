@@ -1,71 +1,205 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Society Studios | Eventos</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            background: #000 url('fondo.jpg') no-repeat center center fixed; 
-            background-size: cover; 
-            color: white; 
-            font-family: sans-serif; 
-        }
-        nav { 
-            display: flex; justify-content: space-between; align-items: center; 
-            padding: 15px 5%; background: rgba(0, 0, 0, 0.8); 
-            position: fixed; width: 100%; top: 0; 
-        }
-        .nav-logo img { height: 45px; }
-        .nav-links { display: flex; gap: 25px; list-style: none; }
-        .nav-links a { color: #ccc; text-decoration: none; font-weight: bold; text-transform: uppercase; }
-        .nav-links a:hover { color: #fff; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Society Safio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
 
-        /* Contenido de Eventos */
-        .container { 
-            padding-top: 120px; display: flex; justify-content: center; 
-            min-height: 100vh; background: rgba(0,0,0,0.5); 
-        }
-        .card { 
-            background: rgba(20, 20, 20, 0.9); padding: 30px; border-radius: 15px; 
-            display: flex; gap: 30px; max-width: 900px; width: 90%; height: fit-content;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        .card img { width: 350px; border-radius: 10px; object-fit: cover; }
-        .info h2 { font-size: 2rem; margin-bottom: 10px; }
-        .info p { color: #ccc; margin-bottom: 15px; line-height: 1.5; }
-        .tag { background: rgba(255,255,255,0.1); padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; }
-        
-        @media (max-width: 768px) {
-            .card { flex-direction: column; align-items: center; text-align: center; }
-            .card img { width: 100%; }
-        }
-    </style>
+    body{
+      background:#0b0b0f;
+      color:#fff;
+      overflow-x:hidden;
+    }
+
+    /* HEADER PREMIUM */
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px 40px;
+      position:fixed;
+      width:100%;
+      top:0;
+      background:rgba(20,20,30,0.4);
+      backdrop-filter: blur(15px);
+      border-bottom:1px solid rgba(255,255,255,0.05);
+      z-index:1000;
+    }
+
+    .logo img{
+      height:35px;
+    }
+
+    nav a{
+      margin:0 15px;
+      color:#aaa;
+      text-decoration:none;
+      transition:0.3s;
+      font-size:14px;
+    }
+
+    nav a:hover{
+      color:#fff;
+    }
+
+    .discord-btn{
+      background:linear-gradient(45deg,#5865F2,#7b2ff7);
+      padding:8px 18px;
+      border-radius:25px;
+      color:white;
+      text-decoration:none;
+      transition:0.3s;
+    }
+
+    .discord-btn:hover{
+      transform:scale(1.05);
+      box-shadow:0 0 15px rgba(123,47,247,0.6);
+    }
+
+    /* HERO PREMIUM */
+    .hero{
+      height:400px;
+      background: url('img/fondosocieti.jpg') center/cover no-repeat;
+      margin-top:70px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      width:100%;
+      height:100%;
+      background:radial-gradient(circle, rgba(123,47,247,0.4), transparent);
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      width:100%;
+      height:100%;
+      background:linear-gradient(to bottom, transparent, #0b0b0f);
+      bottom:0;
+    }
+
+    /* CARD PREMIUM */
+    .container{
+      padding:60px 20px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .card{
+      display:flex;
+      background:rgba(20,20,30,0.6);
+      border-radius:25px;
+      padding:20px;
+      width:850px;
+      backdrop-filter: blur(20px);
+      border:1px solid rgba(255,255,255,0.05);
+      box-shadow:0 0 40px rgba(0,0,0,0.6);
+      gap:20px;
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 0 50px rgba(123,47,247,0.3);
+    }
+
+    .card img{
+      width:260px;
+      border-radius:15px;
+    }
+
+    .card-content{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    .title{
+      font-size:26px;
+      margin-bottom:10px;
+      font-weight:600;
+    }
+
+    .desc{
+      color:#aaa;
+      margin-bottom:15px;
+      line-height:1.5;
+    }
+
+    .tags span{
+      background:#1f1f2e;
+      padding:6px 12px;
+      border-radius:12px;
+      margin-right:10px;
+      font-size:12px;
+      border:1px solid rgba(255,255,255,0.05);
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      .card{
+        flex-direction:column;
+        width:95%;
+      }
+
+      .card img{
+        width:100%;
+      }
+
+      nav{
+        display:none;
+      }
+    }
+
+  </style>
 </head>
 <body>
 
-    <nav>
-        <div class="nav-logo">
-            <img src="logo-blacno.jpg" alt="Logo">
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="eventos.html">Eventos</a></li>
-        </ul>
-    </nav>
+<header>
+  <div class="logo">
+    <img src="img/logo-blanco.jpg" alt="logo">
+  </div>
 
-    <div class="container">
-        <div class="card">
-            <img src="societysafioestudios.jpg" alt="Society Safio">
-            <div class="info">
-                <h2>01. Society Safio</h2>
-                <p>Primer evento dedsafio multijugador de mucha dificultad inspirado en Dedsafio 3.</p>
-                <span class="tag">MUCHA DIFICULTAD</span>
-                <span class="tag">MULTIJUGADOR</span>
-            </div>
-        </div>
+  <nav>
+    <a href="#">Inicio</a>
+    <a href="#">Eventos</a>
+    <a href="#">Historia</a>
+    <a href="#">Nosotros</a>
+    <a href="#">Créditos</a>
+  </nav>
+
+  <a class="discord-btn" href="https://discord.gg/GV8kSsf7">Discord</a>
+</header>
+
+<section class="hero"></section>
+
+<div class="container">
+  <div class="card">
+    <img src="img/society-safio.png" alt="Society Safio">
+
+    <div class="card-content">
+      <div class="title">Society Safio</div>
+
+      <div class="desc">
+        Primer evento desafío multijugador de mucha dificultad inspirado en Desafío 3
+      </div>
+
+      <div class="tags">
+        <span>MUCHA DIFICULTAD</span>
+        <span>MULTIJUGADOR</span>
+      </div>
     </div>
+  </div>
+</div>
 
 </body>
 </html>
