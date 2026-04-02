@@ -3,255 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Society Safio 3 - Tienda Oficial</title>
+    <title>Society Studios - Eventos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
+        :root {
+            --primary-bg: #0a0a0a;
+            --accent-color: #ffffff;
+            --text-secondary: #b3b3b3;
+        }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
-            /* Fondo principal */
-            background-image: url('object_remover-1775080030000.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-color: #000;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary-bg);
             color: white;
             overflow-x: hidden;
         }
 
-        .overlay {
-            background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(15,15,20,0.9) 100%);
-            min-height: 100vh;
-            padding-bottom: 50px;
-        }
-
-        /* Navbar superior */
-        .top-nav {
+        /* --- NAVBAR --- */
+        nav {
             display: flex;
             justify-content: space-between;
-            padding: 15px 30px;
-            background: rgba(0,0,0,0.5);
-        }
-
-        .btn-inicio {
-            background: rgba(255,255,255,0.1);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 13px;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        /* Header con Logo - AJUSTADO PARA QUE NO SEA GIGANTE */
-        .header-section {
-            display: flex;
-            flex-direction: column;
             align-items: center;
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        .main-logo {
+            padding: 20px 8%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
             width: 100%;
-            max-width: 350px; /* Tamaño controlado */
-            height: auto;
-            margin-bottom: 20px;
-            filter: drop-shadow(0 0 15px rgba(0,0,0,0.5));
+            top: 0;
+            z-index: 100;
         }
 
-        .server-info-container {
+        .logo { font-weight: bold; font-size: 1.2rem; }
+
+        .nav-links {
             display: flex;
-            gap: 40px;
-            justify-content: center;
-            margin-top: 10px;
+            list-style: none;
+            gap: 25px;
         }
 
-        .info-box {
-            background: rgba(27, 28, 38, 0.8);
-            padding: 10px 20px;
-            border-radius: 8px;
-            border-bottom: 3px solid #ff3b3b;
-        }
-
-        .info-box span { display: block; color: #ff3b3b; font-weight: 900; }
-        .info-box small { color: #ccc; font-size: 11px; }
-
-        /* Contenedor Principal */
-        .container {
-            display: flex;
-            max-width: 1100px;
-            margin: 0 auto;
-            gap: 20px;
-            padding: 20px;
-        }
-
-        /* Sidebar */
-        .sidebar {
-            width: 250px;
-            background: #1b1c26;
-            border-radius: 10px;
-            height: fit-content;
-        }
-
-        .sidebar-title {
-            padding: 20px;
-            font-weight: 900;
-            font-size: 12px;
-            color: #ff3b3b;
-            border-bottom: 1px solid #2a2b38;
-            text-transform: uppercase;
-        }
-
-        .category {
-            padding: 15px 20px;
-            font-size: 14px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: 0.2s;
-            border-bottom: 1px solid #2a2b38;
-        }
-
-        .category:hover { background: #2a2b38; }
-        .category.active { border-left: 4px solid #ffba00; background: #242531; }
-
-        /* Contenido */
-        .main-content { flex: 1; }
-
-        .welcome-panel {
-            background: #1b1c26;
-            padding: 25px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            border-left: 5px solid #ff3b3b;
-        }
-
-        .welcome-panel h2 { color: #ff3b3b; margin-bottom: 10px; }
-
-        .kit-card {
-            background: #1b1c26;
-            margin-bottom: 10px;
-            padding: 15px 25px;
-            border-radius: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border: 1px solid transparent;
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
             transition: 0.3s;
         }
 
-        .kit-card:hover { border-color: #ff3b3b; }
-
-        .kit-name { font-weight: 700; font-size: 18px; }
-
-        .price-group { display: flex; align-items: center; gap: 15px; }
-
-        .price { text-align: right; }
-        .old-price { text-decoration: line-through; color: #777; font-size: 12px; }
-        .new-price { color: #4CAF50; font-weight: 900; font-size: 20px; display: block; }
-
-        .btn-add {
-            background: #4CAF50;
+        .nav-links a:hover, .nav-links a.active {
             color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: 900;
-            cursor: pointer;
+            border-bottom: 2px solid white;
+            padding-bottom: 5px;
         }
 
-        .btn-info {
-            background: #2196F3;
-            color: white;
-            border: none;
-            width: 35px;
-            height: 35px;
-            border-radius: 5px;
-            cursor: pointer;
+        .social-icons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
+        .btn-discord {
+            background: white;
+            color: black;
+            padding: 8px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 10%;
+            /* Gradiente inspirado en la imagen proporcionada */
+            background: radial-gradient(circle at 20% 30%, #4a5568 0%, transparent 40%),
+                        linear-gradient(135deg, #1a365d 0%, #2d3748 50%, #44337a 100%);
+            position: relative;
+        }
+
+        /* El logo gigante difuminado de fondo */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 20%;
+            width: 400px;
+            height: 400px;
+            background: url('https://i.imgur.com/vHqB7w6.png') no-repeat center; /* Aquí iría tu logo */
+            background-size: contain;
+            opacity: 0.1;
+            transform: translateY(-50%);
+            filter: blur(2px);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+        }
+
+        .hero-content span {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin: 15px 0;
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        /* --- BOTONES --- */
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-main {
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-white { background: white; color: black; }
+        .btn-outline { border: 1px solid #4a5568; color: white; background: rgba(255,255,255,0.05); }
+
+        .btn-main:hover { transform: translateY(-3px); opacity: 0.9; }
+
+        /* --- FOOTER SOCIAL --- */
+        .hero-footer {
+            position: absolute;
+            bottom: 50px;
+            display: flex;
+            gap: 50px;
+        }
+
+        .social-footer-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            opacity: 0.6;
+        }
     </style>
 </head>
 <body>
-    <div class="overlay">
-        <nav class="top-nav">
-            <a href="#" class="btn-inicio">← VOLVER AL INICIO</a>
-            <div style="text-align: right; font-size: 12px;">
-                Invitado<br>
-                <span style="color:#ff3b3b; font-weight:bold; cursor:pointer;">INICIAR SESIÓN</span>
-            </div>
-        </nav>
 
-        <header class="header-section">
-            <img src="fondotransparente societysafio.png" class="main-logo" alt="Society Safio 3">
+    <nav>
+        <div class="logo">SOCIETY</div>
+        <ul class="nav-links">
+            <li><a href="#" class="active">Inicio</a></li>
+            <li><a href="#">Eventos</a></li>
+            <li><a href="#">Historia</a></li>
+            <li><a href="#">Nosotros</a></li>
+            <li><a href="#">Créditos</a></li>
+        </ul>
+        <div class="social-icons">
+            <a href="#" class="btn-discord">Discord</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span>Minecraft Event Studio</span>
+            <h1>Creando experiencias únicas en Minecraft desde 2024</h1>
+            <p>Studio profesional dedicado a organizar eventos épicos. Society Studios transforma tus ideas en mundos interactivos y emocionantes.</p>
             
-            <div class="server-info-container">
-                <div class="info-box">
-                    <span>SOCIETY.FUN</span>
-                    <small>CLIC PARA COPIAR IP</small>
-                </div>
-                <div class="info-box">
-                    <span>DISCORD</span>
-                    <small>UNIRSE A LA COMUNIDAD</small>
-                </div>
+            <div class="buttons">
+                <a href="#" class="btn-main btn-white">Ver Eventos</a>
+                <a href="#" class="btn-main btn-outline">Conocer Más</a>
             </div>
-        </header>
+        </div>
 
-        <main class="container">
-            <aside class="sidebar">
-                <div class="sidebar-title">Categorías</div>
-                <div class="category">⭐ RANGOS</div>
-                <div class="category active">⚔️ SURVIVAL OP</div>
-                <div class="category">🌍 EARTH</div>
-                <div class="category">🏗️ GENS</div>
-                <div class="category">📦 ONEBLOCK</div>
-            </aside>
+        <div class="hero-footer">
+            <div class="social-footer-item">
+                <strong>𝕏</strong> <span>@SocietyStudios</span>
+            </div>
+            <div class="social-footer-item">
+                <strong>▶</strong> <span>@Studios_de_Society</span>
+            </div>
+        </div>
+    </section>
 
-            <section class="main-content">
-                <div class="welcome-panel">
-                    <h2>KITS ESPECIALES</h2>
-                    <p>Potencia tu aventura en la modalidad <strong>Survival Op</strong>. <br>¡Aprovecha nuestras ofertas limitadas!</p>
-                </div>
-
-                <div class="kit-card">
-                    <div class="kit-name">KIT ODI</div>
-                    <div class="price-group">
-                        <div class="price">
-                            <span class="old-price">10.00 USD</span>
-                            <span class="new-price">5.00 USD</span>
-                        </div>
-                        <button class="btn-info">i</button>
-                        <button class="btn-add">+ AGREGAR</button>
-                    </div>
-                </div>
-
-                <div class="kit-card">
-                    <div class="kit-name">KIT HYDRA</div>
-                    <div class="price-group">
-                        <div class="price">
-                            <span class="old-price">20.00 USD</span>
-                            <span class="new-price">10.00 USD</span>
-                        </div>
-                        <button class="btn-info">i</button>
-                        <button class="btn-add">+ AGREGAR</button>
-                    </div>
-                </div>
-
-                <div class="kit-card">
-                    <div class="kit-name">KIT DRAGÓN</div>
-                    <div class="price-group">
-                        <div class="price">
-                            <span class="old-price">75.00 USD</span>
-                            <span class="new-price">37.50 USD</span>
-                        </div>
-                        <button class="btn-info">i</button>
-                        <button class="btn-add">+ AGREGAR</button>
-                    </div>
-                </div>
-
-            </section>
-        </main>
-    </div>
 </body>
 </html>
