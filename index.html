@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Society Studios | Oficial</title>
+    <title>Society Studios | Eventos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* 1. RESET PARA ELIMINAR ESPACIOS BLANCOS */
         * {
             margin: 0;
             padding: 0;
@@ -13,128 +13,177 @@
         }
 
         body, html {
-            width: 100%;
             height: 100%;
-            background-color: #000; /* Fondo negro mientras carga la imagen */
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
             color: white;
             overflow-x: hidden;
         }
 
-        /* 2. EL FONDO GIGANTE (3354 x 1874) */
-        .hero-bg {
+        /* --- FONDO --- */
+        .background {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            /* IMPORTANTE: El nombre debe ser EXACTO al de tu archivo en GitHub */
-            background-image: url('fondo.jpg'); 
-            background-size: cover;       /* Ajusta la imagen gigante a la pantalla */
-            background-position: center;  /* Centra el logo del fondo */
-            background-repeat: no-repeat;
+            background-image: url('fondo.jpg'); /* Tu fondo morado */
+            background-size: cover;
+            background-position: center;
             z-index: -2;
-            will-change: transform;       /* Ayuda al navegador con imágenes pesadas */
         }
 
-        /* Capa de contraste */
         .overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.9) 100%);
             z-index: -1;
         }
 
-        /* 3. NAVBAR CON EL LOGO BLANCO (Imagen 2) */
+        /* --- NAVBAR --- */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 5%;
+            padding: 15px 8%;
             background: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             position: fixed;
-            top: 0;
             width: 100%;
+            top: 0;
             z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
         .nav-logo img {
-            height: 45px; /* Ajusta el tamaño de tu logo blanco arriba */
-            width: auto;
-            display: block;
+            height: 40px;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 25px;
         }
 
         .nav-links a {
-            color: #ddd;
             text-decoration: none;
-            font-weight: 700;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            color: #bbb;
+            font-size: 0.9rem;
             transition: 0.3s;
         }
 
-        .nav-links a:hover {
-            color: #fff;
-        }
-
-        /* 4. CONTENIDO CENTRAL */
-        .main-hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        h1 {
-            font-size: clamp(2rem, 10vw, 4.5rem);
-            letter-spacing: 4px;
-            margin-bottom: 15px;
-            text-shadow: 0 5px 20px rgba(0,0,0,0.8);
-        }
-
-        p {
-            font-size: 1.2rem;
-            color: #ccc;
-            max-width: 700px;
-            line-height: 1.6;
+        .nav-links a:hover, .nav-links a.active {
+            color: white;
         }
 
         .btn-discord {
-            margin-top: 30px;
-            background: #fff;
-            color: #000;
-            padding: 12px 35px;
+            background: white;
+            color: black;
+            padding: 8px 20px;
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
-            transition: 0.3s;
+            font-size: 0.8rem;
         }
 
-        .btn-discord:hover {
-            background: #5865f2;
-            color: #fff;
-            box-shadow: 0 0 20px rgba(88, 101, 242, 0.6);
+        /* --- SECCIÓN DE EVENTOS --- */
+        .container {
+            margin-top: 150px;
+            padding: 0 10%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .event-card {
+            background: rgba(20, 20, 20, 0.8);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            align-items: center;
+            padding: 30px;
+            gap: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+        }
+
+        .event-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.1);
+        }
+
+        .event-image {
+            width: 350px;
+            height: 200px;
+            border-radius: 15px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .event-info {
+            flex-grow: 1;
+        }
+
+        .event-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .event-info h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .event-year {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .event-description {
+            color: #aaa;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .tags {
+            display: flex;
+            gap: 10px;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsivo para celulares */
+        @media (max-width: 768px) {
+            .event-card { flex-direction: column; text-align: center; }
+            .event-image { width: 100%; }
+            .event-header { flex-direction: column; }
         }
     </style>
 </head>
 <body>
 
-    <div class="hero-bg"></div>
+    <div class="background"></div>
     <div class="overlay"></div>
 
     <nav>
@@ -142,18 +191,37 @@
             <img src="logo-blacno.jpg" alt="Society Logo">
         </div>
         <ul class="nav-links">
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Eventos</a></li>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="#" class="active">Eventos</a></li>
+            <li><a href="#">Historia</a></li>
             <li><a href="#">Nosotros</a></li>
-            <li><a href="#">Soporte</a></li>
         </ul>
-        <a href="#" class="btn-discord">DISCORD</a>
+        <a href="#" class="btn-discord">Discord</a>
     </nav>
 
-    <section class="main-hero">
-        <h1>SOCIETY STUDIOS</h1>
-        <p>Creamos experiencias inmersivas y eventos de alto nivel en Minecraft. La aventura comienza aquí.</p>
-    </section>
+    <div class="container">
+        <div class="event-card">
+            <div class="event-number">01</div>
+            
+            <div class="event-image">
+                <img src="societysafioestudios.jpg" alt="Society Safio">
+            </div>
+
+            <div class="event-info">
+                <div class="event-header">
+                    <h2>Society Safio</h2>
+                    <span class="event-year">2026</span>
+                </div>
+                <p class="event-description">
+                    Primer evento dedsafio multijugador de mucha dificultad inspirado en dedsafio 3.
+                </p>
+                <div class="tags">
+                    <span class="tag">Mucha Dificultad</span>
+                    <span class="tag">Multijugador</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
