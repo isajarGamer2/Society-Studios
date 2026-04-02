@@ -20,14 +20,12 @@
         }
         .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: -1; }
         
-        /* BARRA DE NAVEGACIÓN */
         nav { 
             display: flex; justify-content: space-between; align-items: center; 
             padding: 0 5%; height: 85px; background: rgba(0, 0, 0, 0.95); 
             backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; 
             z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.05);
         }
-        .nav-left { flex: 1; display: flex; align-items: center; }
         .nav-left img { height: 40px; width: auto; }
 
         .nav-center { display: flex; list-style: none; gap: 30px; align-items: center; }
@@ -36,20 +34,10 @@
         .nav-center a:hover { color: white; }
 
         .nav-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 15px; }
-        
         .social-box { display: flex; gap: 10px; border-right: 1px solid rgba(255,255,255,0.1); padding-right: 20px; }
-        .social-icon { 
-            width: 35px; height: 35px; background: rgba(255,255,255,0.05); 
-            border-radius: 8px; display: flex; align-items: center; justify-content: center;
-            color: #ccc; text-decoration: none; font-size: 1.1rem; transition: 0.3s;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-        .social-icon:hover { background: rgba(255,255,255,0.1); color: white; }
+        .social-icon { width: 35px; height: 35px; background: rgba(255,255,255,0.05); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #ccc; text-decoration: none; font-size: 1.1rem; transition: 0.3s; border: 1px solid rgba(255,255,255,0.05); }
+        .btn-discord-nav { background: #fff; color: #000; padding: 10px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 0.85rem; }
 
-        .btn-discord-nav { background: #fff; color: #000; padding: 10px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 0.85rem; transition: 0.3s; }
-        .btn-discord-nav:hover { opacity: 0.9; transform: scale(1.02); }
-
-        /* SECCIÓN HERO */
         .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 0 10%; }
         .hero-info-wrapper { max-width: 650px; }
         .subtitle { text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; color: #b3b3b3; margin-bottom: 10px; font-weight: bold; }
@@ -64,16 +52,14 @@
 <body>
     <div class="overlay"></div>
     <nav>
-        <div class="nav-left">
-            <img src="./fondo-blacno.jpg" alt="Society Logo">
-        </div>
+        <div class="nav-left"><img src="./fondo-blacno.jpg" alt="Society Logo"></div>
 
         <ul class="nav-center">
             <li><a href="index.html" class="active">Inicio</a></li>
             <li><a href="eventos.html">Eventos</a></li>
-            <li><a href="#">Historia</a></li>
-            <li><a href="#">Nosotros</a></li>
-            <li><a href="#">Créditos</a></li>
+            <li><a href="historia.html">Historia</a></li>
+            <li><a href="Nosotros.html">Nosotros</a></li>
+            <li><a href="creditos.html">Créditos</a></li>
         </ul>
 
         <div class="nav-right">
@@ -92,7 +78,7 @@
             <p class="description">Studio profesional dedicado a organizar eventos épicos. Society Studios transforma tus ideas en mundos interactivos y emocionantes.</p>
             <div class="action-buttons">
                 <a href="eventos.html" class="btn-main btn-white">Ver Eventos</a>
-                <a href="#" class="btn-main btn-outline">Conocer Más</a>
+                <a href="Nosotros.html" class="btn-main btn-outline">Conocer Más</a>
             </div>
         </div>
     </div>
