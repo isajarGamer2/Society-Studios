@@ -2,118 +2,135 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eventos - Society</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+  <title>Eventos | Society Safio</title>
   <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-
-    body{
-      background:#0b0b0f;
-      color:#fff;
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #0f0f0f;
+      color: white;
     }
 
-    header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:15px 40px;
-      background:rgba(20,20,30,0.4);
-      backdrop-filter: blur(15px);
-      border-bottom:1px solid rgba(255,255,255,0.05);
+    /* 🔥 BARRA FIJA */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      background: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      border-bottom: 1px solid #333;
     }
 
-    .logo img{height:35px}
-
-    nav a{
-      margin:0 15px;
-      color:#aaa;
-      text-decoration:none;
-      transition:0.3s;
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
     }
 
-    nav a:hover{color:#fff}
-
-    .title{
-      text-align:center;
-      margin-top:50px;
-      font-size:35px;
-      font-weight:700;
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 10px 15px;
+      transition: 0.3s;
+      border-radius: 8px;
     }
 
-    .container{
-      display:flex;
-      justify-content:center;
-      margin-top:40px;
+    .nav-links a:hover {
+      background: white;
+      color: black;
     }
 
-    .card{
-      display:flex;
-      background:rgba(20,20,30,0.6);
-      padding:20px;
-      border-radius:20px;
-      width:800px;
-      gap:20px;
-      backdrop-filter:blur(15px);
-      transition:0.3s;
+    /* 🔥 CONTENIDO */
+    .content {
+      padding-top: 100px;
+      text-align: center;
     }
 
-    .card:hover{
-      transform:scale(1.03);
-      box-shadow:0 0 30px rgba(123,47,247,0.4);
+    .title {
+      font-size: 50px;
+      font-weight: bold;
+      color: #00ffcc;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #00ffcc;
     }
 
-    .card img{
-      width:250px;
-      border-radius:15px;
+    .event-box {
+      background: #1a1a1a;
+      width: 80%;
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 15px;
+      border: 1px solid #333;
+      box-shadow: 0 0 10px rgba(0,255,204,0.2);
     }
 
-    .btn{
-      margin-top:10px;
-      display:inline-block;
-      padding:10px 20px;
-      border-radius:20px;
-      background:linear-gradient(45deg,#7b2ff7,#5865F2);
-      color:white;
-      text-decoration:none;
+    .event-box h2 {
+      color: #00ffcc;
+      margin-bottom: 10px;
     }
 
+    .event-box p {
+      color: #ccc;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #00ffcc;
+      color: black;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: white;
+    }
   </style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo">
-    <img src="img/logo-blanco.jpg">
+  <!-- 🔥 NAVBAR -->
+  <div class="navbar">
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="eventos.html">Eventos</a></li>
+      <li><a href="historia.html">Historia</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="creditos.html">Créditos</a></li>
+    </ul>
   </div>
 
-  <nav>
-    <a href="index.html">Inicio</a>
-    <a href="eventos.html">Eventos</a>
-    <a href="historia.html">Historia</a>
-    <a href="nosotros.html">Nosotros</a>
-    <a href="creditos.html">Créditos</a>
-  </nav>
-</header>
+  <!-- 🔥 CONTENIDO -->
+  <div class="content">
+    <div class="title">EVENTOS</div>
 
-<div class="title">Eventos</div>
-
-<div class="container">
-  <div class="card">
-    <img src="img/desafio3.png" alt="Desafío 3">
-
-    <div>
-      <h2>Desafío 3</h2>
-      <p style="color:#aaa">
-        Evento extremo de supervivencia con mecánicas únicas, alta dificultad y desafíos constantes.
-      </p>
-
-      <a href="#" class="btn">Ver más</a>
+    <div class="event-box">
+      <h2>🔥 Evento Desafío 3</h2>
+      <p>Participa en el desafío más extremo del server. Solo los mejores sobreviven.</p>
+      <a class="btn" href="#">Entrar</a>
     </div>
+
+    <div class="event-box">
+      <h2>⚔ Torneo PvP</h2>
+      <p>Demuestra quién es el más fuerte en combates 1v1.</p>
+      <a class="btn" href="#">Entrar</a>
+    </div>
+
   </div>
-</div>
 
 </body>
 </html>
